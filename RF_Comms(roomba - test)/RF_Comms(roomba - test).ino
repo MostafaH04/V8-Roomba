@@ -38,6 +38,7 @@ void setup() {
 
 void loop()
 {
+  // test_out not declared
   test_comms.Bot_readData(test_out);
   Serial.println("Data received from dock");
   delay(1000);
