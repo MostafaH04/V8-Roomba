@@ -13,7 +13,7 @@ test_out.dock_rx_address = "00001";
 Rf_Comms test_comms_out(7, 8, true);
 CommsOut comms;
 
-//Master
+//Master *EDIT* NOT the master
 void setup() {
     Serial.begin(9600);
     comms = CommsOut(SLAVE_ADDR);
