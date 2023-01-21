@@ -40,6 +40,9 @@ typedef struct{
     float cv_x_pos;
     float cv_y_pos;
     float cv_z_pos;
+    
+    // *EDIT* if the dock is controlling, should also send speed
+    float movementSpeed; 
 
     //NRF24L01 - RF comms transeiver info (5-bit address): Dock is transmitting
     const uint8_t dock_rx_address[5];
