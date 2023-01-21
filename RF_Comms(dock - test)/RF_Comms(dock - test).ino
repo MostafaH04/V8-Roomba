@@ -28,6 +28,7 @@ void setup() {
 
 void loop()
 {
+    // test_in not declared
     test_comms_out.Dock_readData(test_in);
     Serial.println("Data received from roomba");
     delay(1000);
