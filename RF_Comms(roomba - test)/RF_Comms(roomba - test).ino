@@ -2,7 +2,7 @@
 #include "Onboard_Comms.hpp"
 #include "RF_Comms.hpp"
 
-//Slave
+//Slave *EDIT* NOT the slave 
 int motorPins[MOTOR_ROWS][MOTOR_COLS][NUM_MOTOR_PINS];
 Motor_Driver testDriver;
 CommsIn comms;
