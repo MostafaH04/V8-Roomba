@@ -18,7 +18,7 @@ void setup() {
     Serial.begin(9600);
     comms = CommsOut(SLAVE_ADDR);
 
-    test_comms_out.initAddress();
+    test_comms_out.initAddress(); // private method, you dont get to call this
     test_comms_out.init();
 
     test_comms_out.Dock_sendData(test_out);

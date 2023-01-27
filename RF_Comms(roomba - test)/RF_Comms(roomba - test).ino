@@ -28,13 +28,25 @@ Rf_Comms test_comms_in;
 void setup() {
   Wire.begin(SLAVE_ADDR);
 
-  test_comms.initAddress();
+  test_comms.initAddress(); // private method, you dont get to call this
   test_comms.init();
 
   test_comms.Bot_sendData(test_in);
-  Serial.println("Data sent from roomba");
+  Serial.println("Data sent from roomba"); // can we display the data sent and received
   delay(1000);
 }
+
+
+// hmmm, it seems like we are both sending and recieving on both at the same time
+// i.e when the other is sending this is sending (in setup)
+// rather instead of doing any sending or recieving in setup
+// we can try having it be in a ping pong order
+// where one side pings and the other pongs back
+// what i mean by that is one side is sending first (lets say dock), and the 
+// other side (roomba) is waiting until it receives something.
+// After the data is sent, the dock would have switched to receive mode 
+// Then the roomba would send data (after it received the data)
+// and the dock would now do the opposite (wait for data then send again)
 
 void loop()
 {
