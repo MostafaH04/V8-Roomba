@@ -3,6 +3,8 @@
 
 #include "Arduino.h"
 
+#define PWM_MAX 255
+
 class Motor {
     public:
         int forward_pin, backward_pin;
@@ -10,17 +12,6 @@ class Motor {
 
     private:
         Motor(int forwardPin, int backwardPin);
-        /*
-        {
-            forward_pin = forwardPin;
-            backward_pin = backwardPin;
-
-            pinMode(forward_pin, OUTPUT);
-            pinMode(backward_pin, OUTPUT);
-
-            speed = 0;            
-        }
-        */ 
         void drive(int speed_in);
 };
 
