@@ -46,7 +46,7 @@ class MPU_6050
 
         IMU_Data* imuData;
 
-        TwoWire Wire1;
+        TwoWire i2c_wire;
         
         void fullScaleOperation(bool fullScale);
 
