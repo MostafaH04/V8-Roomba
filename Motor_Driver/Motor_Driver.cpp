@@ -27,9 +27,10 @@ void Motor::init_motor()
 
 void Motor::drive(int speed_in)
 {
-    float speedPercentage = abs(speed_in) / 100;
+    float speedPercentage = abs((float)speed_in) / 100;
     int speedVal = speedPercentage * PWM_MAX; 
     analogWrite(forward_pin, speed_in > 0 ? speedVal : 0);
+    Serial.println(speedPercentage);
     analogWrite(backward_pin, speed_in > 0 ? 0 : speedVal);
 }
 
@@ -51,4 +52,16 @@ Motor_Driver::Motor_Driver(int forwardPin_left, int backwardPin_left,
 {
     left_motor = new Motor(forwardPin_left, backwardPin_left);
     right_motor = new Motor(forwardPin_right, backwardPin_right);
+}
+
+void Motor_Driver::drive(int speed_in_left, int speed_in_right)
+{
+    left_motor->drive(speed_in_left);
+    right_motor->drive(speed_in_right);
+}
+
+void Motor_Driver::drive(int speeds[2])
+{
+    left_motor->drive(speeds[0]);
+    right_motor->drive(speeds[1]);
 }
