@@ -34,6 +34,12 @@ void Motor::drive(int speed_in)
 }
 
 // todo: complete motor_drive class
+Motor_Driver::Motor_Driver()
+{
+    left_motor = nullptr;
+    right_motor = nullptr;
+}
+
 Motor_Driver::Motor_Driver(Motor* leftMotor, Motor* rightMotor)
 {
     left_motor = leftMotor;
@@ -43,5 +49,6 @@ Motor_Driver::Motor_Driver(Motor* leftMotor, Motor* rightMotor)
 Motor_Driver::Motor_Driver(int forwardPin_left, int backwardPin_left,
                            int forwardPin_right, int backwardPin_right)
 {
-
+    left_motor = new Motor(forwardPin_left, backwardPin_left);
+    right_motor = new Motor(forwardPin_right, backwardPin_right);
 }

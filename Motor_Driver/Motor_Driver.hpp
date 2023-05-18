@@ -20,7 +20,8 @@ class Motor {
 
 class Motor_Driver {
     private:
-        Motor* left_motor, right_motor;
+        Motor* left_motor;
+        Motor* right_motor;
         
     public:
         Motor_Driver();
