@@ -187,6 +187,33 @@ void Filter::predictPosition(state* imuState, IMU_Data* imuData, float rotMat[3]
     float rotatedForce[3];
     matVecMult_3(rotMat, f_k, rotatedForce);
 
+    for (int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            F_k[i][j] = 0;
+            if (i == j)
+                F_k[i][j] = 1;
+        }
+    }
+
+    float subF_k[3][3];
+    float skewRotatedForce[3][3];
+    skewSymetric(rotatedForce, skewRotatedForce);
+    scalarMult3_3(skewRotatedForce, -delta_t, subF_k);
+
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3 ; j++)
+        {
+            F_k[i][j+3] = 0;
+            if (i == j)
+                F_k[i][j+3] = delta_t;
+
+            F_k[i+3][j+6] = subF_k[i][j];
+        }
+    }
+
     for (int i = 0; i < 3; i ++)
     {
         p_check[i] = p_prev[i] + v_prev[i] * delta_t + delta_t * delta_t / 2 * (rotatedForce[i] + g[i]);

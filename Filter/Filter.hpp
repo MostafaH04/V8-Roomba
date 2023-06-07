@@ -12,6 +12,7 @@ struct state {
     float positionX, positionY, positionZ;
     float velocityX, velocityY, velocityZ;
     float q0, q1, q2, q3;
+    float uncertainty[3][3];
 };
 
 class Filter
