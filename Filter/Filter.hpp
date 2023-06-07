@@ -2,6 +2,7 @@
 #define FILTER_HPP
 
 #include "Arduino.h"
+#include "matmul/matmul.hpp"
 #include "../MPU_6050_Driver/MPU_6050_Driver.hpp"
 
 #define grav 9.80665
@@ -36,7 +37,7 @@ class Filter
         float delta_t;
         float prev_time;
 
-        void predictPosition(state* imuState, IMU_Data* imuData);
+        void predictPosition(state* imuState, IMU_Data* imuData, float rotMat[3][3]);
     public:
         Filter(MPU_6050* imu1, MPU_6050* imu2);
         void getState(state* e_state, state* r_state); 
