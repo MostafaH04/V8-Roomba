@@ -87,3 +87,84 @@ void matVecMult_3(float mat[3][3], float vector[3], float out[3])
         out[i] = currTerm;
     }
 }
+
+void scalarMult6_6(float mat[6][6], float scalar, float out[6][6])
+{
+    for (int i = 0; i < 6; i++)
+    {
+        for (int j = 0; j < 6; j++)
+        {
+            out[i][j] = mat[i][j] * scalar;
+        }
+    }
+}
+
+void matMult9_9(float mat[9][9], float mat2[9][9], float out[9][9])
+{
+    for (int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            float currTerm = 0;
+            for (int k = 0; k < 9; k++)
+            {
+                currTerm += mat[i][k] * mat2[k][j];
+            }
+            out[i][j] = currTerm;
+        }
+    }
+}
+
+void transpose_9_9(float mat[9][9], float out[9][9])
+{
+    for (int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            out[j][i] = mat[i][j];
+        }
+    }
+}
+
+void matMult9_6(float mat[9][6], float mat2[6][6], float out[9][6])
+{
+    for (int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < 6; j++)
+        {
+            float currTerm = 0;
+            for (int k = 0; k < 6; k++)
+            {
+                currTerm += mat[i][k] * mat2[k][j];
+            }
+            out[i][j] = currTerm;
+        }
+    }
+}
+
+void matMult6_9(float mat[9][6], float mat2[6][9], float out[9][9])
+{
+    for (int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            float currTerm = 0;
+            for (int k = 0; k < 6; k++)
+            {
+                currTerm += mat[i][k] * mat2[k][j];
+            }
+            out[i][j] = currTerm;
+        }
+    }
+}
+
+void addMat_9_9(float mat [9][9], float mat2[9][9])
+{
+    for (int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            mat[i][j] += mat2[i][j];
+        }
+    }
+}

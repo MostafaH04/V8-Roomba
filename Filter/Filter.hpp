@@ -12,7 +12,7 @@ struct state {
     float positionX, positionY, positionZ;
     float velocityX, velocityY, velocityZ;
     float q0, q1, q2, q3;
-    float uncertainty[3][3];
+    float uncertainty[9][9];
 };
 
 class Filter
@@ -30,7 +30,8 @@ class Filter
         float rotMat2[3][3];
         float identity[3][3];
         float F_k[9][9];
-        float L_k[7][6];
+        float L_k[9][6];
+        float covarMat[6][6];
         float Q_k[6][6];
         float K_k; // fix size
         float H_k[3][3]; // fix size

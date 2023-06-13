@@ -21,6 +21,32 @@ Filter::Filter(MPU_6050* imu1, MPU_6050* imu2)
     imu2 = imu2;
     delta_t = 0;
     prev_time = millis() * 1000; 
+    
+    // L_k initialization
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 6; j++)
+        {
+            L_k[i][j] = 0;
+        }
+    }
+
+    for (int i = 3; i < 9; i++)
+    {
+        for (int j = 0; j < 6; j++)
+        {
+            L_k[i][j] = 0;
+            if (i-3 == j)
+                L_k[i][j] = 1;
+        }
+    }
+
+    covarMat[0][0] = pow(2.8e-3,2);
+    covarMat[1][1] = pow(2.5e-3,2);
+    covarMat[2][2] = pow(3.8e-3,2);
+    covarMat[3][3] = pow(5.4732e-4,2);
+    covarMat[4][4] = pow(6.1791e-4,2);
+    covarMat[5][5] = pow(6.2090e-4,2);
 }
 
 void Filter::getState(state* e_state, state* r_state)
@@ -36,13 +62,14 @@ void Filter::updateState()
     prev_time = curr_time;
     IMU_Data* imuData_1_temp = imu1->generateNewResult();
     IMU_Data* imuData_2_temp = imu2->generateNewResult();
+    scalarMult6_6(covarMat, delta_t, Q_k);
 
     updatePrediction();
     propagateUncertainty();
-    updateKalmanGain();
-    updateErrorState();
-    correctState();
-    updateCovariance();
+    // updateKalmanGain();
+    // updateErrorState();
+    // correctState();
+    // updateCovariance();
     
     imuData_1 = imuData_1_temp;
     imuData_2 = imuData_2_temp;
@@ -238,5 +265,40 @@ void Filter::updatePrediction()
     predictPosition(imu2_state, imuData_2, rotMat2);
 }
 
+void pCheckCalc(state* imuState, float F_k[9][9], float L_k[9][6], float Q_k[6][6])
+{
+    // term 1
+    float term_1_1[9][9] = {0};
+    matMult9_9(F_k, imuState->uncertainty, term_1_1);
+    float term1[9][9] = {0};
+    float F_k_T[9][9];
+    transpose_9_9(F_k, F_k_T);
+    matMult9_9(term_1_1, F_k_T, term1);
+
+    // term 2
+    float term_2_1[9][6] = {0};
+    matMult9_6(L_k, Q_k, term_2_1);
+    float term2[9][9] = {0};
+    float L_k_T[6][9];
+    transpose_9_6(L_k, L_k_T);
+    matMult6_9(term_2_1, L_k_T, term2);
+
+    addMat_9_9(term1, term2);
+    for (int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            imuState->uncertainty[i][j] = term1[i][j];
+        }
+    }
+}
+
+void Filter::propagateUncertainty()
+{
+    // imu 1 calculation
+    pCheckCalc(imu1_state, F_k, L_k, Q_k);
+    // imu 2 calculation
+    pCheckCalc(imu2_state, F_k, L_k, Q_k);
+}
 
 
