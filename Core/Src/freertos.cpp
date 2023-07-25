@@ -141,7 +141,7 @@ void StartDefaultTask(void *argument)
   for(;;)
   {
     car.drive();
-	osDelay(1);
+	  osDelay(1);
   }
   /* USER CODE END StartDefaultTask */
 }
