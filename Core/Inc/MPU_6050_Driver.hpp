@@ -198,22 +198,22 @@ class MPU_6050
         MPU_6050(bool setAddressHigh, I2C_HandleTypeDef *hi2c_in,
             GPIO_TypeDef* addressPinReg, uint16_t addressPin);
 
-        bool initialize();
-        bool selfTest();
+        bool initialize(void);
+        bool selfTest(void);
         void setSampleRate(uint16_t sample_rate_khz);
         void setFullScaleGyro(Gyro_FullScale gyro_fs_setting);
         void setFullScaleAccel(Accel_FullScale accel_fs_setting);
-        void readAccelRegisters();
-        void readGyroRegisters();
-        void readTempRegisters();
-        void updateData();
-        bool resetRegisters();
+        void readAccelRegisters(void);
+        void readGyroRegisters(void);
+        void readTempRegisters(void);
+        void updateData(void);
+        void resetRegisters(void);
         void sleepMode(bool sleep);
         void selectClockSource(Clock_Select clock_sel);
         void disableTemp(bool disable);
         void sleepCycle(Wake_Up_Frequency cycleFreq);
         
-        IMU_Data* generateNewResult();
+        IMU_Data* generateNewResult(void);
 
 };
 

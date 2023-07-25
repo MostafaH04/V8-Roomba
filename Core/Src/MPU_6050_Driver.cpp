@@ -12,11 +12,13 @@ MPU_6050::MPU_6050(bool setAddressHigh, I2C_HandleTypeDef* hi2c_in,
   hi2c = hi2c_in;
 } 
 
-bool MPU_6050::initialize()
+bool MPU_6050::initialize(void)
 {
   sleepMode(false);
-  while (!resetRegisters()) {}
+  resetRegisters();
   disableTemp(true);
+  setFullScaleAccel(ACCEL_FULLSCALE_16);
+  setFullScaleGyro(GYRO_FS_1000_RANGE);
   selectClockSource(INTERNAL_8MHZ);
   if (!selfTest())
   {
@@ -35,7 +37,7 @@ double factoryTrimAccel(uint8_t testVal)
   return 4096 * 0.34 * pow((0.92/0.34), (testVal-1)/(pow(2,5)-2));
 }
 
-bool MPU_6050::selfTest()
+bool MPU_6050::selfTest(void)
 {
   uint8_t test_recv[4];
 
@@ -143,6 +145,22 @@ void MPU_6050::setFullScaleGyro(Gyro_FullScale gyro_fs_setting)
   uint8_t config = gyro_fs_setting << 3;
   HAL_I2C_Mem_Write_DMA(hi2c, address, GYRO_CONFIG, 1,
     &config, 1);
+
+  switch(gyro_fs_setting)
+  {
+    case 0x00: // 250
+      LSB_deg_s = GYRO_FS_250_RANGE;
+      break; 
+    case 0x01: //500
+      LSB_deg_s = GYRO_FS_500_RANGE;
+      break;
+    case 0x02: // 1000
+      LSB_deg_s = GYRO_FS_1000_RANGE;
+      break;
+    case 0x03: // 2000
+      LSB_deg_s = GYRO_FS_2000_RANGE;
+      break;
+  }
 }
 
 void MPU_6050::setFullScaleAccel(Accel_FullScale accel_fs_setting)
@@ -150,10 +168,26 @@ void MPU_6050::setFullScaleAccel(Accel_FullScale accel_fs_setting)
   uint8_t config = accel_fs_setting << 3;
   HAL_I2C_Mem_Write_DMA(hi2c, address, ACCEL_CONFIG, 1,
     &config, 1);
+
+  switch(accel_fs_setting)
+  {
+    case 0x00: // 2
+      LSB_g = ACCEL_FS_2_RANGE;
+      break; 
+    case 0x01: // 4
+      LSB_g = ACCEL_FS_4_RANGE;
+      break;
+    case 0x02: // 8
+      LSB_g = ACCEL_FS_8_RANGE;
+      break;
+    case 0x03: // 16
+      LSB_g = ACCEL_FS_16_RANGE;
+      break;
+  }
 }
 
 
-void MPU_6050::readAccelRegisters()
+void MPU_6050::readAccelRegisters(void)
 {
   int16_t accelX, accelY, accelZ;
   uint8_t accelRec[6];
@@ -170,7 +204,7 @@ void MPU_6050::readAccelRegisters()
   imuData->accZ = accelZ;
 }
 
-void MPU_6050::readGyroRegisters()
+void MPU_6050::readGyroRegisters(void)
 {
   int16_t gyroX, gyroY, gyroZ;
   uint8_t gyroRec[6];
@@ -187,7 +221,7 @@ void MPU_6050::readGyroRegisters()
   imuData->gyroZ = gyroZ;
 }
 
-void MPU_6050::readTempRegisters()
+void MPU_6050::readTempRegisters(void)
 {
   int16_t temp;
   uint8_t tempRecv[2];
@@ -201,22 +235,64 @@ void MPU_6050::readTempRegisters()
   imuData->temp = temp;
 }
 
-void MPU_6050::updateData()
+void MPU_6050::updateData(void)
 {
   readTempRegisters();
   readGyroRegisters();
   readAccelRegisters();
 }
 
-void MPU_6050::resetRegisters()
+void MPU_6050::resetRegisters(void)
 {
   uint8_t resetRegisters = 0b00000111;
   HAL_I2C_Mem_Write_DMA(hi2c, address, SIGNAL_PATH_RESET, 1,
     &resetRegisters, 1);
 }
 
+void MPU_6050::sleepMode(bool sleep)
+{
+  uint8_t pwr_mgmt;
+  HAL_I2C_Mem_Read_DMA(hi2c, address, PWR_MGMT_1, 1,
+    &pwr_mgmt, 1);
+  
+  pwr_mgmt = pwr_mgmt | ((sleep?0x01:0x00) << 6);
 
-IMU_Data* MPU_6050::generateNewResult()
+  HAL_I2C_Mem_Write_DMA(hi2c, address, PWR_MGMT_1, 1,
+    &pwr_mgmt, 1);
+}
+
+void MPU_6050::selectClockSource(Clock_Select clock_sel)
+{
+  uint8_t pwr_mgmt;
+  HAL_I2C_Mem_Read_DMA(hi2c, address, PWR_MGMT_1, 1,
+    &pwr_mgmt, 1);
+  
+  pwr_mgmt = pwr_mgmt | clock_sel;
+
+  HAL_I2C_Mem_Write_DMA(hi2c, address, PWR_MGMT_1, 1,
+    &pwr_mgmt, 1);
+}
+
+void MPU_6050::disableTemp(bool disable)
+{
+  uint8_t pwr_mgmt;
+  HAL_I2C_Mem_Read_DMA(hi2c, address, PWR_MGMT_1, 1,
+    &pwr_mgmt, 1);
+  
+  pwr_mgmt = pwr_mgmt | (disable?0x01:0x00) << 3;
+
+  HAL_I2C_Mem_Write_DMA(hi2c, address, PWR_MGMT_1, 1,
+    &pwr_mgmt, 1);
+}
+
+void MPU_6050::sleepCycle(Wake_Up_Frequency cycleFreq)
+{
+  uint8_t pwr_mgmt2 = cycleFreq << 6;
+  HAL_I2C_Mem_Write_DMA(hi2c, address, PWR_MGMT_2, 1,
+    &pwr_mgmt2, 1);
+}
+
+IMU_Data* MPU_6050::generateNewResult(void)
 {
   updateData();
   return imuData;
