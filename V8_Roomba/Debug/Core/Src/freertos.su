@@ -1,0 +1,6 @@
+../Core/Src/freertos.cpp:94:6:void MX_FREERTOS_Init()	8	static
+../Core/Src/freertos.cpp:145:6:void StartDefaultTask(void*)	16	static
+../Core/Src/freertos.cpp:164:6:void StartTask02(void*)	16	static
+../Core/Src/freertos.cpp:175:1:void __static_initialization_and_destruction_0(int, int)	24	static
+../Core/Src/freertos.cpp:175:1:cpp)	8	static
+../Core/Src/freertos.cpp:175:1:cpp)	8	static

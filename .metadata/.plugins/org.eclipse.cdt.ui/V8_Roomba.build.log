@@ -1,4 +1,4 @@
-23:28:42 **** Incremental Build of configuration Debug for project V8_Roomba ****
+01:07:37 **** Incremental Build of configuration Debug for project V8_Roomba ****
 make -j8 all 
 arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
 arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
@@ -7,11 +7,11 @@ Finished building target: V8_Roomba.elf
 arm-none-eabi-size   V8_Roomba.elf 
 arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
    text	   data	    bss	    dec	    hex	filename
-  24604	     28	  20832	  45464	   b198	V8_Roomba.elf
+  35656	    128	  21240	  57024	   dec0	V8_Roomba.elf
 Finished building: default.size.stdout
  
 Finished building: V8_Roomba.list
  
 
-23:28:43 Build Finished. 0 errors, 0 warnings. (took 795ms)
+01:07:41 Build Finished. 0 errors, 0 warnings. (took 3s.623ms)
 
