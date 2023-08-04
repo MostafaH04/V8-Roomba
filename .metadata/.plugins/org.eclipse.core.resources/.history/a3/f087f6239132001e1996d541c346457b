@@ -202,7 +202,6 @@ class MPU_6050
 
         I2C_HandleTypeDef *hi2c;
 
-        void calibrateMPU(void);
         void correctData(void);
 
     public:
@@ -211,7 +210,7 @@ class MPU_6050
         ~MPU_6050();
 
         bool initialize(void);
-        void startPins();
+        void calibrateMPU(void);
         bool selfTest(void);
         void setSampleRate(uint16_t sample_rate_khz);
         void setFullScaleGyro(Gyro_FullScale gyro_fs_setting);

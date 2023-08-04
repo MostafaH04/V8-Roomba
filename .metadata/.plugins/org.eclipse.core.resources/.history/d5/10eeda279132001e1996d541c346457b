@@ -211,7 +211,6 @@ class MPU_6050
         ~MPU_6050();
 
         bool initialize(void);
-        void startPins();
         bool selfTest(void);
         void setSampleRate(uint16_t sample_rate_khz);
         void setFullScaleGyro(Gyro_FullScale gyro_fs_setting);

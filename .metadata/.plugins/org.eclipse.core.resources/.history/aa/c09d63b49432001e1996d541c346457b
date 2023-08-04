@@ -108,9 +108,9 @@ void MX_FREERTOS_Init(void) {
 //  left_b.init();
 //  left_f.init();
   car.init();
-  mpu1.startPins();
+  //  mpu1.startPins();
   mpu2.startPins();
-  mpu1.initialize();
+  //  mpu1.initialize();
   mpu2.initialize();
   imuData1 = mpu1.generateNewResult();
   imuData2 = mpu2.generateNewResult();
@@ -184,7 +184,7 @@ void StartTask02(void *argument)
   for(;;)
   {
 	mpu1.updateData();
-    mpu2.updateData();
+  mpu2.updateData();
     osDelay(20);
   }
   /* USER CODE END StartTask02 */

@@ -54,8 +54,8 @@ Motor right_f(&htim1, &htim1, TIM_CHANNEL_3, TIM_CHANNEL_4);
 Motor left_f(&htim3, &htim2, TIM_CHANNEL_1, TIM_CHANNEL_2);
 Motor left_b(&htim4, &htim3, TIM_CHANNEL_1, TIM_CHANNEL_2);
 
-MPU_6050 mpu1(true, &hi2c1, GPIOC, GPIO_PIN_15);
-MPU_6050 mpu2(false, &hi2c1, GPIOB, GPIO_PIN_2);
+MPU_6050 mpu1(false, &hi2c1, GPIOC, GPIO_PIN_15);
+MPU_6050 mpu2(true, &hi2c1, GPIOB, GPIO_PIN_2);
 
 IMU_Data *imuData1, *imuData2;
 
@@ -108,8 +108,6 @@ void MX_FREERTOS_Init(void) {
 //  left_b.init();
 //  left_f.init();
   car.init();
-  mpu1.startPins();
-  mpu2.startPins();
   mpu1.initialize();
   mpu2.initialize();
   imuData1 = mpu1.generateNewResult();
@@ -184,7 +182,7 @@ void StartTask02(void *argument)
   for(;;)
   {
 	mpu1.updateData();
-    mpu2.updateData();
+  mpu2.updateData();
     osDelay(20);
   }
   /* USER CODE END StartTask02 */

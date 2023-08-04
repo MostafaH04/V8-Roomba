@@ -184,7 +184,7 @@ void StartTask02(void *argument)
   for(;;)
   {
 	mpu1.updateData();
-    mpu2.updateData();
+  mpu2.updateData();
     osDelay(20);
   }
   /* USER CODE END StartTask02 */

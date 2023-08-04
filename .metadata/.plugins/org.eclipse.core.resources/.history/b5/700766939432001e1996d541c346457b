@@ -36,7 +36,7 @@ void MPU_6050::calibrateMPU(void)
 
     buffAx += imuData->accX;
     buffAy += imuData->accY;
-    buffAz += imuData->accZ - LSB_g * (address == ADDRESS_HIGH?-1:1);
+    buffAz += imuData->accZ - LSB_g;
 
     buffGx += imuData->gyroX;
     buffGy += imuData->gyroY;
@@ -71,7 +71,7 @@ void MPU_6050::startPins()
   }
   else
   {
-	  HAL_GPIO_WritePin(addressPin, addressPinVal, GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(addressPin, addressPinVal, GPIO_PIN_SET);
   }
 }
 

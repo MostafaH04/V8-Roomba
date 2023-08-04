@@ -1,35 +1,4 @@
-23:58:02 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  40816	    128	  21232	  62176	   f2e0	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-00:03:32 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
-../Core/Src/freertos.cpp: In function 'void MX_FREERTOS_Init()':
-../Core/Src/freertos.cpp:101:3: error: 'imu' was not declared in this scope
-  101 |   imu.initialize();
-      |   ^~~
-make: *** [Core/Src/subdir.mk:69: Core/Src/freertos.o] Error 1
-"make -j8 all" terminated with exit code 2. Build might be incomplete.
-00:05:14 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
-../Core/Src/freertos.cpp:59:24: error: base operand of '->' has non-pointer type 'MPU_6050'
-   59 | IMU_Data* imuData = mpu->generateNewResult();
-      |                        ^~
-make: *** [Core/Src/subdir.mk:69: Core/Src/freertos.o] Error 1
-"make -j8 all" terminated with exit code 2. Build might be incomplete.
-00:05:25 **** Incremental Build of configuration Debug for project V8_Roomba ****
+02:02:49 **** Incremental Build of configuration Debug for project V8_Roomba ****
 make -j8 all 
 arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
 arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
@@ -38,12 +7,44 @@ Finished building target: V8_Roomba.elf
 arm-none-eabi-size   V8_Roomba.elf 
 arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
    text	   data	    bss	    dec	    hex	filename
-  41136	    128	  21232	  62496	   f420	V8_Roomba.elf
+  44824	    132	  21344	  66300	  102fc	V8_Roomba.elf
 Finished building: default.size.stdout
  
 Finished building: V8_Roomba.list
  
-00:05:59 **** Incremental Build of configuration Debug for project V8_Roomba ****
+02:02:54 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  44824	    132	  21344	  66300	  102fc	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+02:06:04 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
+../Core/Src/MPU_6050_Driver.cpp: In member function 'void MPU_6050::calibrateMPU()':
+../Core/Src/MPU_6050_Driver.cpp:31:35: warning: comparison of integer expressions of different signedness: 'int' and 'const unsigned int' [-Wsign-compare]
+   31 |   for (int measIter = 0; measIter < TOTAL_MEASUREMENTS; measIter ++)
+      |                          ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: V8_Roomba.elf
+ 
+arm-none-eabi-size   V8_Roomba.elf 
+arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
+   text	   data	    bss	    dec	    hex	filename
+  44824	    132	  21344	  66300	  102fc	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+Finished building: V8_Roomba.list
+ 
+02:09:09 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  44824	    132	  21344	  66300	  102fc	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+02:10:26 **** Incremental Build of configuration Debug for project V8_Roomba ****
 make -j8 all 
 arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
 arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
@@ -52,41 +53,30 @@ Finished building target: V8_Roomba.elf
 arm-none-eabi-size   V8_Roomba.elf 
 arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
    text	   data	    bss	    dec	    hex	filename
-  41136	    128	  21232	  62496	   f420	V8_Roomba.elf
+  44824	    132	  21344	  66300	  102fc	V8_Roomba.elf
 Finished building: default.size.stdout
  
 Finished building: V8_Roomba.list
  
-00:10:39 **** Incremental Build of configuration Debug for project V8_Roomba ****
+02:12:07 **** Incremental Build of configuration Debug for project V8_Roomba ****
 make -j8 all 
 arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
-arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/MPU_6050_Driver.cpp: In member function 'void MPU_6050::calibrateMPU()':
+../Core/Src/MPU_6050_Driver.cpp:31:35: warning: comparison of integer expressions of different signedness: 'int' and 'const unsigned int' [-Wsign-compare]
+   31 |   for (int measIter = 0; measIter < TOTAL_MEASUREMENTS; measIter ++)
+      |                          ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
 arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: V8_Roomba.elf
  
 arm-none-eabi-size   V8_Roomba.elf 
 arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
    text	   data	    bss	    dec	    hex	filename
-  41136	    128	  21232	  62496	   f420	V8_Roomba.elf
+  44824	    132	  21344	  66300	  102fc	V8_Roomba.elf
 Finished building: default.size.stdout
  
 Finished building: V8_Roomba.list
  
-00:11:17 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-size   V8_Roomba.elf 
-   text	   data	    bss	    dec	    hex	filename
-  41136	    128	  21232	  62496	   f420	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-00:11:21 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-size   V8_Roomba.elf 
-   text	   data	    bss	    dec	    hex	filename
-  41136	    128	  21232	  62496	   f420	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-00:12:44 **** Incremental Build of configuration Debug for project V8_Roomba ****
+02:13:26 **** Incremental Build of configuration Debug for project V8_Roomba ****
 make -j8 all 
 arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
 arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
@@ -95,158 +85,19 @@ Finished building target: V8_Roomba.elf
 arm-none-eabi-size   V8_Roomba.elf 
 arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
    text	   data	    bss	    dec	    hex	filename
-  41008	    128	  21232	  62368	   f3a0	V8_Roomba.elf
+  44824	    132	  21344	  66300	  102fc	V8_Roomba.elf
 Finished building: default.size.stdout
  
 Finished building: V8_Roomba.list
  
-00:21:21 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  35464	    128	  21232	  56824	   ddf8	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-00:24:11 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  35480	    128	  21232	  56840	   de08	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-00:24:28 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  41152	    128	  21232	  62512	   f430	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-00:26:21 **** Incremental Build of configuration Debug for project V8_Roomba ****
+02:29:03 **** Incremental Build of configuration Debug for project V8_Roomba ****
 make -j8 all 
 arm-none-eabi-size   V8_Roomba.elf 
    text	   data	    bss	    dec	    hex	filename
-  41152	    128	  21232	  62512	   f430	V8_Roomba.elf
+  44824	    132	  21344	  66300	  102fc	V8_Roomba.elf
 Finished building: default.size.stdout
  
-00:35:13 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  41168	    128	  21232	  62528	   f440	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-00:37:51 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  41168	    128	  21232	  62528	   f440	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-00:40:05 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  41168	    128	  21232	  62528	   f440	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-00:40:20 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-size   V8_Roomba.elf 
-   text	   data	    bss	    dec	    hex	filename
-  41168	    128	  21232	  62528	   f440	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-00:42:53 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  35624	    128	  21232	  56984	   de98	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-00:44:34 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  35624	    128	  21232	  56984	   de98	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-00:46:18 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-size   V8_Roomba.elf 
-   text	   data	    bss	    dec	    hex	filename
-  35624	    128	  21232	  56984	   de98	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-00:48:00 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
-../Core/Src/MPU_6050_Driver.cpp: In member function 'bool MPU_6050::initialize()':
-../Core/Src/MPU_6050_Driver.cpp:27:23: error: 'addressPinReg' was not declared in this scope
-   27 |     HAL_GPIO_WritePin(addressPinReg, addressPin, GPIO_PIN_SET);
-      |                       ^~~~~~~~~~~~~
-../Core/Src/MPU_6050_Driver.cpp:27:38: error: 'addressPin' was not declared in this scope; did you mean 'address'?
-   27 |     HAL_GPIO_WritePin(addressPinReg, addressPin, GPIO_PIN_SET);
-      |                                      ^~~~~~~~~~
-      |                                      address
-make: *** [Core/Src/subdir.mk:69: Core/Src/MPU_6050_Driver.o] Error 1
-"make -j8 all" terminated with exit code 2. Build might be incomplete.
-00:49:17 **** Incremental Build of configuration Debug for project V8_Roomba ****
+02:36:46 **** Incremental Build of configuration Debug for project V8_Roomba ****
 make -j8 all 
 arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
 arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
@@ -256,12 +107,138 @@ Finished building target: V8_Roomba.elf
 arm-none-eabi-size   V8_Roomba.elf 
 arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
    text	   data	    bss	    dec	    hex	filename
-  35656	    128	  21240	  57024	   dec0	V8_Roomba.elf
+  44872	    132	  21344	  66348	  1032c	V8_Roomba.elf
 Finished building: default.size.stdout
  
 Finished building: V8_Roomba.list
  
-00:54:25 **** Incremental Build of configuration Debug for project V8_Roomba ****
+02:37:07 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  44872	    132	  21344	  66348	  1032c	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+02:37:40 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: V8_Roomba.elf
+ 
+arm-none-eabi-size   V8_Roomba.elf 
+arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
+   text	   data	    bss	    dec	    hex	filename
+  42256	    132	  21344	  63732	   f8f4	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+Finished building: V8_Roomba.list
+ 
+02:40:50 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42256	    132	  21344	  63732	   f8f4	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+02:41:32 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42256	    132	  21344	  63732	   f8f4	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+02:42:21 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: V8_Roomba.elf
+ 
+arm-none-eabi-size   V8_Roomba.elf 
+arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
+   text	   data	    bss	    dec	    hex	filename
+  42112	    128	  21344	  63584	   f860	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+Finished building: V8_Roomba.list
+ 
+02:44:34 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42112	    128	  21344	  63584	   f860	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+02:45:38 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42112	    128	  21344	  63584	   f860	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+02:47:54 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42112	    128	  21344	  63584	   f860	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+02:49:08 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42112	    128	  21344	  63584	   f860	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+02:53:59 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42112	    128	  21344	  63584	   f860	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+02:54:59 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42112	    128	  21344	  63584	   f860	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+02:57:13 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42112	    128	  21344	  63584	   f860	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+02:58:18 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42112	    128	  21344	  63584	   f860	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+02:58:50 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: V8_Roomba.elf
+ 
+arm-none-eabi-size   V8_Roomba.elf 
+arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
+   text	   data	    bss	    dec	    hex	filename
+  42096	    128	  21344	  63568	   f850	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+Finished building: V8_Roomba.list
+ 
+02:59:28 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-size   V8_Roomba.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42096	    128	  21344	  63568	   f850	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+03:00:20 **** Incremental Build of configuration Debug for project V8_Roomba ****
 make -j8 all 
 arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
 arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
@@ -270,12 +247,26 @@ Finished building target: V8_Roomba.elf
 arm-none-eabi-size   V8_Roomba.elf 
 arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
    text	   data	    bss	    dec	    hex	filename
-  35656	    128	  21240	  57024	   dec0	V8_Roomba.elf
+  42096	    128	  21344	  63568	   f850	V8_Roomba.elf
 Finished building: default.size.stdout
  
 Finished building: V8_Roomba.list
  
-00:55:11 **** Incremental Build of configuration Debug for project V8_Roomba ****
+03:01:15 **** Incremental Build of configuration Debug for project V8_Roomba ****
+make -j8 all 
+arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: V8_Roomba.elf
+ 
+arm-none-eabi-size   V8_Roomba.elf 
+arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
+   text	   data	    bss	    dec	    hex	filename
+  42112	    128	  21344	  63584	   f860	V8_Roomba.elf
+Finished building: default.size.stdout
+ 
+Finished building: V8_Roomba.list
+ 
+03:05:20 **** Incremental Build of configuration Debug for project V8_Roomba ****
 make -j8 all 
 arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
 arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
@@ -284,120 +275,7 @@ Finished building target: V8_Roomba.elf
 arm-none-eabi-size   V8_Roomba.elf 
 arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
    text	   data	    bss	    dec	    hex	filename
-  35656	    128	  21240	  57024	   dec0	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-00:55:46 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  35656	    128	  21240	  57024	   dec0	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-00:56:49 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-size   V8_Roomba.elf 
-   text	   data	    bss	    dec	    hex	filename
-  35656	    128	  21240	  57024	   dec0	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-00:58:24 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  35672	    128	  21240	  57040	   ded0	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-00:59:26 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  35672	    128	  21240	  57040	   ded0	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-01:00:03 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  35672	    128	  21240	  57040	   ded0	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-01:01:08 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/MPU_6050_Driver.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/MPU_6050_Driver.d" -MT"Core/Src/MPU_6050_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/MPU_6050_Driver.o"
-arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  35656	    128	  21240	  57024	   dec0	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-Finished building: V8_Roomba.list
- 
-01:01:58 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-size   V8_Roomba.elf 
-   text	   data	    bss	    dec	    hex	filename
-  35656	    128	  21240	  57024	   dec0	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-01:03:45 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-size   V8_Roomba.elf 
-   text	   data	    bss	    dec	    hex	filename
-  35656	    128	  21240	  57024	   dec0	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-01:06:19 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-size   V8_Roomba.elf 
-   text	   data	    bss	    dec	    hex	filename
-  35656	    128	  21240	  57024	   dec0	V8_Roomba.elf
-Finished building: default.size.stdout
- 
-01:07:37 **** Incremental Build of configuration Debug for project V8_Roomba ****
-make -j8 all 
-arm-none-eabi-g++ "../Core/Src/freertos.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
-arm-none-eabi-g++ -o "V8_Roomba.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mahus\Desktop\projects\V8-Roomba\V8_Roomba\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="V8_Roomba.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: V8_Roomba.elf
- 
-arm-none-eabi-size   V8_Roomba.elf 
-arm-none-eabi-objdump -h -S  V8_Roomba.elf  > "V8_Roomba.list"
-   text	   data	    bss	    dec	    hex	filename
-  35656	    128	  21240	  57024	   dec0	V8_Roomba.elf
+  42128	    128	  21344	  63600	   f870	V8_Roomba.elf
 Finished building: default.size.stdout
  
 Finished building: V8_Roomba.list
