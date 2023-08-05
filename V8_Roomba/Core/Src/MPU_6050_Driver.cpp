@@ -31,8 +31,8 @@ void MPU_6050::calibrateMPU(void)
   for (int measIter = 0; measIter < TOTAL_MEASUREMENTS; measIter ++)
   {
     readTempRegisters();
-	readGyroRegisters();
-	readAccelRegisters();
+	  readGyroRegisters();
+	  readAccelRegisters();
 
     buffAx += imuData->accX;
     buffAy += imuData->accY;
