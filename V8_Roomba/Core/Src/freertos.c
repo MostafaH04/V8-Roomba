@@ -61,12 +61,12 @@ const osThreadAttr_t controlSpeed_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-/* Definitions for microROS */
-osThreadId_t microROSHandle;
-const osThreadAttr_t microROS_attributes = {
-  .name = "microROS",
-  .stack_size = 3000 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+/* Definitions for comms */
+osThreadId_t commsHandle;
+const osThreadAttr_t comms_attributes = {
+  .name = "comms",
+  .stack_size = 1000 * 4,
+  .priority = (osPriority_t) osPriorityLow,
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -76,7 +76,7 @@ const osThreadAttr_t microROS_attributes = {
 
 void StartDefaultTask(void *argument);
 void StartTask02(void *argument);
-void startMicroROS(void *argument);
+void startComms(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -113,8 +113,8 @@ void MX_FREERTOS_Init(void) {
   /* creation of controlSpeed */
   controlSpeedHandle = osThreadNew(StartTask02, NULL, &controlSpeed_attributes);
 
-  /* creation of microROS */
-  microROSHandle = osThreadNew(startMicroROS, NULL, &microROS_attributes);
+  /* creation of comms */
+  commsHandle = osThreadNew(startComms, NULL, &comms_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -162,22 +162,22 @@ void StartTask02(void *argument)
   /* USER CODE END StartTask02 */
 }
 
-/* USER CODE BEGIN Header_startMicroROS */
+/* USER CODE BEGIN Header_startComms */
 /**
-* @brief Function implementing the microROS thread.
+* @brief Function implementing the comms thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_startMicroROS */
-void startMicroROS(void *argument)
+/* USER CODE END Header_startComms */
+void startComms(void *argument)
 {
-  /* USER CODE BEGIN startMicroROS */
+  /* USER CODE BEGIN startComms */
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
   }
-  /* USER CODE END startMicroROS */
+  /* USER CODE END startComms */
 }
 
 /* Private application code --------------------------------------------------*/

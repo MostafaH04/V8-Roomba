@@ -42,7 +42,9 @@ Core/Src/freertos.o: ../Core/Src/freertos.cpp \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../Core/Inc/MotorControl.hpp ../Core/Inc/tim.h ../Core/Inc/main.h \
  ../Core/Inc/tim.h ../Core/Inc/MPU_6050_Driver.hpp ../Core/Inc/i2c.h \
- ../Core/Inc/gpio.h ../Core/Inc/i2c.h
+ ../Core/Inc/gpio.h ../Core/Inc/i2c.h ../Core/Inc/usart.h \
+ ../Core/Inc/Controller.hpp ../Core/Inc/MotorControl.hpp \
+ ../Core/Inc/MPU_6050_Driver.hpp ../Core/Inc/usart.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -93,3 +95,8 @@ Core/Src/freertos.o: ../Core/Src/freertos.cpp \
 ../Core/Inc/i2c.h:
 ../Core/Inc/gpio.h:
 ../Core/Inc/i2c.h:
+../Core/Inc/usart.h:
+../Core/Inc/Controller.hpp:
+../Core/Inc/MotorControl.hpp:
+../Core/Inc/MPU_6050_Driver.hpp:
+../Core/Inc/usart.h:

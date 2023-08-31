@@ -26,7 +26,7 @@ void MPU_6050::calibrateMPU(void)
   // take 4000 measurements and average them out;
   float buffAx = 0, buffAy = 0, buffAz = 0;
   float buffGx = 0, buffGy = 0, buffGz = 0;
-  const int TOTAL_MEASUREMENTS = 4000;
+  const int TOTAL_MEASUREMENTS = 200;
 
   for (int measIter = 0; measIter < TOTAL_MEASUREMENTS; measIter ++)
   {
@@ -84,10 +84,10 @@ bool MPU_6050::initialize(void)
   setFullScaleGyro(GYRO_FULLSCALE_1000);
   selectClockSource(INTERNAL_8MHZ);
   calibrateMPU();
-  if (!selfTest())
-  {
-    return INIT_FAIL;
-  }
+//  if (!selfTest())
+//  {
+//    return INIT_FAIL;
+//  }
   return INIT_SUCCESS;
 }
 

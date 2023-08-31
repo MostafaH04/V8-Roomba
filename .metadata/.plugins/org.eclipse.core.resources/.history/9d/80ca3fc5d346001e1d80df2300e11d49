@@ -1,0 +1,159 @@
+#include "Controller.hpp"
+
+Controller::Controller(UART_HandleTypeDef * huart_in, Chasis *chasis_in,
+      MPU_6050 *imu1_in, MPU_6050 *imu2_in):
+huart(huart_in), chasis(chasis_in), imu_1(imu1_in), imu_2(imu2_in)
+{}
+
+void Controller::startUpState()
+{
+  chasis->init();
+  imu_1->startPins();
+  imu_2->startPins();
+  controllerState = CALIBRATION;
+  systemStarted = true;
+}
+
+void Controller::calibrationState()
+{
+  imu_1->initialize();
+  imu_2->initialize();
+  imuData1 = imu_1->generateNewResult();
+  imuData2 = imu_2->generateNewResult();
+  controllerState = OPERATING;
+  systemCalibrated = true;
+}
+
+void Controller::operatingState()
+{
+  chasis->steer(currentCommand.angle,
+                currentCommand.speed);
+  // currently omniDrive is not supported
+  // if (currentCommand.failure)
+  //   controllerState = FAILURE;
+  // else if (currentCommand.shutDown)
+  //   controllerState = SHUTDOWN;
+  // else if (!currentCommand.operating)
+  //   controllerState = IDLE;
+}
+
+void Controller::idleState()
+{
+  chasis->steer(0,0);
+
+  if (!currentCommand.operating)
+  {
+    return;
+  }
+  else if (time_ms > currentCommand.time_ms + CONNECTION_TIMEOUT * 10)
+  {
+    controllerState = SHUTDOWN;
+  }
+  else if (time_ms < currentCommand.time_ms + CONNECTION_TIMEOUT)
+  {
+    controllerState = OPERATING;
+  }
+}
+
+void Controller::failState()
+{
+  chasis->steer(0,0);
+  if (!currentCommand.failure)
+    controllerState = OPERATING;
+}
+
+void Controller::shutdownState()
+{
+  if (currentCommand.shutDown)
+    return;
+  controllerState = START_UP;
+}
+
+void Controller::loop()
+{
+  time_ms = HAL_GetTick();
+
+  imu_1->updateData();
+  imu_2->updateData();
+
+  if (time_ms > currentCommand.time_ms + CONNECTION_TIMEOUT)
+  {
+    controllerState = IDLE;
+  }
+
+  switch(controllerState)
+  {
+    case START_UP:
+      startUpState();
+      break;
+    
+    case CALIBRATION:
+      calibrationState();
+      break;
+
+    case OPERATING:
+      operatingState();
+      break;
+    
+    case IDLE:
+      idleState();
+      break;
+
+    case FAILURE:
+      failState();
+      break;
+    
+    case SHUTDOWN:
+      shutdownState();
+      break;
+  }
+}
+
+void Controller::receiveCommands()
+{
+  HAL_UART_Receive(&huart1, receiveBuffer, 5, 100);
+
+  currentCommand.failure = (receiveBuffer[0] && 0b00001000);
+  currentCommand.shutDown = !(receiveBuffer[0] && 0b00000100);
+  currentCommand.operating = (receiveBuffer[0] && 0b00000010);
+  currentCommand.omniDrive = (receiveBuffer[0] && 0b00000001);
+
+  currentCommand.angle = int16_t(receiveBuffer[1] << 8 | receiveBuffer[2])/1000.0;
+  currentCommand.speed = int16_t(receiveBuffer[3] << 8 | receiveBuffer[4])/1000.0;
+
+  currentCommand.time_ms = time_ms; 
+}
+
+void Controller::trasnmitCommands()
+{
+  transmitBuffer[0] = int(second) << 2 | int(systemStarted) << 1 
+					  | int(systemCalibrated);
+  
+  int16_t accX = imudata->accX * 1000;
+  int16_t accY = imudata->accY * 1000;
+  int16_t accZ = imudata->accZ * 1000;
+  int16_t gyroX = imudata->gyroX * 1000;
+  int16_t gyroY = imudata->gyroY * 1000;
+  int16_t gyroZ = imudata->gyroZ * 1000;
+
+  transmitBuffer[1] = (accX & 0b1111111100000000) >> 8;
+  transmitBuffer[2] = (accX & 0b0000000011111111);
+
+  transmitBuffer[3] = (accY & 0b1111111100000000) >> 8;
+  transmitBuffer[4] = (accY & 0b0000000011111111);
+
+  transmitBuffer[5] = (accZ & 0b1111111100000000) >> 8;
+  transmitBuffer[6] = (accZ & 0b0000000011111111);
+
+  transmitBuffer[7] = (gyroX & 0b1111111100000000) >> 8;
+  transmitBuffer[8] = (gyroX & 0b0000000011111111);
+
+  transmitBuffer[9] = (gyroY & 0b1111111100000000) >> 8;
+  transmitBuffer[10] = (gyroY & 0b0000000011111111);
+
+  transmitBuffer[11] = (gyroZ & 0b1111111100000000) >> 8;
+  transmitBuffer[12] = (gyroZ & 0b0000000011111111);
+
+  HAL_UART_Transmit_IT(&huart1, transmitBuffer, sizeof(transmitBuffer));
+}
+

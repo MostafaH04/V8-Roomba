@@ -1,7 +1,8 @@
-../Core/Src/freertos.cpp:104:6:void MX_FREERTOS_Init()	8	static
-../Core/Src/freertos.cpp:160:6:void StartDefaultTask(void*)	16	static
-../Core/Src/freertos.cpp:179:6:void StartTask02(void*)	16	static
-../Core/Src/freertos.cpp:200:6:void startMicroROS(void*)	16	static
-../Core/Src/freertos.cpp:209:1:void __static_initialization_and_destruction_0(int, int)	24	static
-../Core/Src/freertos.cpp:209:1:cpp)	8	static
-../Core/Src/freertos.cpp:209:1:cpp)	8	static
+../Core/Src/freertos.cpp:75:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	16	static
+../Core/Src/freertos.cpp:119:6:void MX_FREERTOS_Init()	8	static
+../Core/Src/freertos.cpp:170:6:void StartDefaultTask(void*)	16	static
+../Core/Src/freertos.cpp:189:6:void StartTask02(void*)	16	static
+../Core/Src/freertos.cpp:208:6:void startComms(void*)	16	static
+../Core/Src/freertos.cpp:218:1:void __static_initialization_and_destruction_0(int, int)	24	static
+../Core/Src/freertos.cpp:218:1:cpp)	8	static
+../Core/Src/freertos.cpp:218:1:cpp)	8	static

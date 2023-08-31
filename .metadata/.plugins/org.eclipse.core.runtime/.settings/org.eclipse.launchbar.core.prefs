@@ -5,3 +5,5 @@ configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:V8_Roomba Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:V8_Roomba\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:V8_Roomba\ Debug/activeLaunchTarget=null\:---
+org.eclipse.launchbar.core.descriptorType.default\:V8-Roomba-ROS/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:V8-Roomba-ROS/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
