@@ -1,0 +1,21 @@
+running develop
+running egg_info
+creating roomba.egg-info
+writing roomba.egg-info/PKG-INFO
+writing dependency_links to roomba.egg-info/dependency_links.txt
+writing entry points to roomba.egg-info/entry_points.txt
+writing requirements to roomba.egg-info/requires.txt
+writing top-level names to roomba.egg-info/top_level.txt
+writing manifest file 'roomba.egg-info/SOURCES.txt'
+reading manifest file 'roomba.egg-info/SOURCES.txt'
+writing manifest file 'roomba.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages/roomba.egg-link (link to .)
+
+Installed /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba
+running install_data
+creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/share/ament_index
+creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/share/ament_index/resource_index
+creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/share/ament_index/resource_index/packages
+copying resource/roomba -> /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/share/ament_index/resource_index/packages
+copying package.xml -> /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/share/roomba

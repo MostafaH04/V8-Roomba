@@ -1,0 +1,3 @@
+source;share/gazebo_ros2_control/hook/cmake_prefix_path.ps1
+source;share/gazebo_ros2_control/hook/cmake_prefix_path.dsv
+source;share/gazebo_ros2_control/hook/cmake_prefix_path.sh

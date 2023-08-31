@@ -1,0 +1,1 @@
+/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c

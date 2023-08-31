@@ -1,0 +1,36 @@
+[0.541s] Invoking command in '/home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba': PYTHONPATH=/home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/prefix_override:/home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build
+[0.826s] running develop
+[0.826s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[0.827s]   warnings.warn(
+[0.831s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.831s]   warnings.warn(
+[0.982s] Removing /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages/roomba.egg-link (link to .)
+[1.051s] Invoked command in '/home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba' returned '0': PYTHONPATH=/home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/prefix_override:/home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build
+[1.052s] Invoking command in '/home/mahus/Autonomous-Cleaning-Robot/dev_ws/src/roomba': PYTHONPATH=/home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/prefix_override:/home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/roomba build --build-base /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build install --record /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/install.log --single-version-externally-managed
+[1.241s] running egg_info
+[1.242s] writing ../../build/roomba/roomba.egg-info/PKG-INFO
+[1.244s] writing dependency_links to ../../build/roomba/roomba.egg-info/dependency_links.txt
+[1.244s] writing entry points to ../../build/roomba/roomba.egg-info/entry_points.txt
+[1.244s] writing requirements to ../../build/roomba/roomba.egg-info/requires.txt
+[1.244s] writing top-level names to ../../build/roomba/roomba.egg-info/top_level.txt
+[1.246s] reading manifest file '../../build/roomba/roomba.egg-info/SOURCES.txt'
+[1.246s] writing manifest file '../../build/roomba/roomba.egg-info/SOURCES.txt'
+[1.247s] running build
+[1.247s] running build_py
+[1.247s] creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build
+[1.247s] creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build/lib
+[1.247s] creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build/lib/roomba
+[1.247s] copying roomba/__init__.py -> /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build/lib/roomba
+[1.248s] running install
+[1.248s] running install_lib
+[1.248s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.248s]   warnings.warn(
+[1.248s] creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages/roomba
+[1.248s] copying /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build/lib/roomba/__init__.py -> /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages/roomba
+[1.249s] byte-compiling /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages/roomba/__init__.py to __init__.cpython-310.pyc
+[1.249s] running install_data
+[1.249s] running install_egg_info
+[1.251s] Copying ../../build/roomba/roomba.egg-info to /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages/roomba-0.0.0-py3.10.egg-info
+[1.252s] running install_scripts
+[1.271s] writing list of installed files to '/home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/install.log'
+[1.292s] Invoked command in '/home/mahus/Autonomous-Cleaning-Robot/dev_ws/src/roomba' returned '0': PYTHONPATH=/home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/prefix_override:/home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/roomba build --build-base /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build install --record /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/install.log --single-version-externally-managed

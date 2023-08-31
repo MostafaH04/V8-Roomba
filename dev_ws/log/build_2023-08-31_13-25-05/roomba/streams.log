@@ -1,0 +1,27 @@
+[0.483s] Invoking command in '/home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba': PYTHONPATH=/home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/prefix_override:/home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build --no-deps install_data
+[0.650s] running develop
+[0.655s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[0.655s]   warnings.warn(
+[0.657s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.657s]   warnings.warn(
+[0.750s] running egg_info
+[0.750s] creating roomba.egg-info
+[0.751s] writing roomba.egg-info/PKG-INFO
+[0.751s] writing dependency_links to roomba.egg-info/dependency_links.txt
+[0.752s] writing entry points to roomba.egg-info/entry_points.txt
+[0.752s] writing requirements to roomba.egg-info/requires.txt
+[0.752s] writing top-level names to roomba.egg-info/top_level.txt
+[0.753s] writing manifest file 'roomba.egg-info/SOURCES.txt'
+[0.754s] reading manifest file 'roomba.egg-info/SOURCES.txt'
+[0.754s] writing manifest file 'roomba.egg-info/SOURCES.txt'
+[0.756s] running build_ext
+[0.756s] Creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages/roomba.egg-link (link to .)
+[0.756s] 
+[0.757s] Installed /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba
+[0.757s] running install_data
+[0.757s] creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/share/ament_index
+[0.757s] creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/share/ament_index/resource_index
+[0.757s] creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/share/ament_index/resource_index/packages
+[0.757s] copying resource/roomba -> /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/share/ament_index/resource_index/packages
+[0.757s] copying package.xml -> /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/share/roomba
+[0.777s] Invoked command in '/home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba' returned '0': PYTHONPATH=/home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/prefix_override:/home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build --no-deps install_data

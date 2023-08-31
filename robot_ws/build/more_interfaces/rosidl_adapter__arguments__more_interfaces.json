@@ -1,0 +1,7 @@
+{
+  "package_name": "more_interfaces",
+  "non_idl_tuples": [
+    "/home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces:msg/Controls.msg",
+    "/home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces:msg/Readings.msg"
+  ]
+}

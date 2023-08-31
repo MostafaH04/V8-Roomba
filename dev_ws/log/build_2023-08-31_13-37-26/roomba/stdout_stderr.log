@@ -1,0 +1,32 @@
+running develop
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+Removing /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages/roomba.egg-link (link to .)
+running egg_info
+writing ../../build/roomba/roomba.egg-info/PKG-INFO
+writing dependency_links to ../../build/roomba/roomba.egg-info/dependency_links.txt
+writing entry points to ../../build/roomba/roomba.egg-info/entry_points.txt
+writing requirements to ../../build/roomba/roomba.egg-info/requires.txt
+writing top-level names to ../../build/roomba/roomba.egg-info/top_level.txt
+reading manifest file '../../build/roomba/roomba.egg-info/SOURCES.txt'
+writing manifest file '../../build/roomba/roomba.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build
+creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build/lib
+creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build/lib/roomba
+copying roomba/__init__.py -> /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build/lib/roomba
+running install
+running install_lib
+/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+creating /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages/roomba
+copying /home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/build/lib/roomba/__init__.py -> /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages/roomba
+byte-compiling /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages/roomba/__init__.py to __init__.cpython-310.pyc
+running install_data
+running install_egg_info
+Copying ../../build/roomba/roomba.egg-info to /home/mahus/Autonomous-Cleaning-Robot/dev_ws/install/roomba/lib/python3.10/site-packages/roomba-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/mahus/Autonomous-Cleaning-Robot/dev_ws/build/roomba/install.log'
