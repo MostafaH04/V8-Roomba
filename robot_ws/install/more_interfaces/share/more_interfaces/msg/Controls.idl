@@ -1,1 +1,14 @@
-/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/rosidl_adapter/more_interfaces/msg/Controls.idl
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from more_interfaces/msg/Controls.msg
+// generated code does not contain a copyright notice
+
+
+module more_interfaces {
+  module msg {
+    struct Controls {
+      float speed;
+
+      float steering;
+    };
+  };
+};

@@ -1,1 +1,4 @@
-/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/ament_cmake_index/share/ament_index/resource_index/rosidl_interfaces/more_interfaces
+msg/Controls.idl
+msg/Controls.msg
+msg/Readings.idl
+msg/Readings.msg

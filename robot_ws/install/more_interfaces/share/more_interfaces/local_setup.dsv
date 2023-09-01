@@ -1,1 +1,4 @@
-/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/ament_cmake_environment_hooks/local_setup.dsv
+source;share/more_interfaces/environment/ament_prefix_path.sh
+source;share/more_interfaces/environment/library_path.sh
+source;share/more_interfaces/environment/path.sh
+source;share/more_interfaces/environment/pythonpath.sh

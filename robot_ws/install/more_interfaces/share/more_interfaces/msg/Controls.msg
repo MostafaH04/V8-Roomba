@@ -1,1 +1,2 @@
-/home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces/msg/Controls.msg
+float32 speed
+float32 steering

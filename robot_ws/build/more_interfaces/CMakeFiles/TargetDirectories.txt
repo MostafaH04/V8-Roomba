@@ -9,7 +9,7 @@
 /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir
 /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles/more_interfaces__rosidl_typesupport_introspection_cpp.dir
 /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles/more_interfaces__rosidl_typesupport_cpp.dir
-/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles/ament_cmake_python_symlink_more_interfaces.dir
+/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles/ament_cmake_python_copy_more_interfaces.dir
 /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles/ament_cmake_python_build_more_interfaces_egg.dir
 /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles/more_interfaces__rosidl_generator_py.dir
 /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir

@@ -1,1 +1,2 @@
-/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/rosidl_generator_py/more_interfaces/msg/__init__.py
+from more_interfaces.msg._controls import Controls  # noqa: F401
+from more_interfaces.msg._readings import Readings  # noqa: F401

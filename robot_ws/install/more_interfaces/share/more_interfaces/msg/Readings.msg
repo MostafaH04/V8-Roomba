@@ -1,1 +1,6 @@
-/home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces/msg/Readings.msg
+float32 acc_x
+float32 acc_y
+float32 acc_z
+float32 gyr_x
+float32 gyr_y
+float32 gyr_z

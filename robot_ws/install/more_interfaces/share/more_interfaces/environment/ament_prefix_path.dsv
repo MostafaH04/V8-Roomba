@@ -1,1 +1,1 @@
-/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/ament_cmake_environment_hooks/ament_prefix_path.dsv
+prepend-non-duplicate;AMENT_PREFIX_PATH;
