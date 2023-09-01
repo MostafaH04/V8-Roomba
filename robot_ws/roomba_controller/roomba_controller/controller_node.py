@@ -66,19 +66,19 @@ class RoombaController(Node):
         imu1_reading = Readings()
         imu2_reading = Readings()
 
-        imu1_reading.acc_x = int.from_bytes(Acc1_XByte, byteorder='big')
-        imu1_reading.acc_y = int.from_bytes(Acc1_YByte, byteorder='big')
-        imu1_reading.acc_z = int.from_bytes(Acc1_ZByte, byteorder='big')
-        imu1_reading.gyr_x = int.from_bytes(Gyr1_XByte, byteorder='big')
-        imu1_reading.gyr_y = int.from_bytes(Gyr1_YByte, byteorder='big')
-        imu1_reading.gyr_z = int.from_bytes(Gyr1_ZByte, byteorder='big')
+        imu1_reading.acc_x = float(int.from_bytes(Acc1_XByte, byteorder='big'))/1000
+        imu1_reading.acc_y = float(int.from_bytes(Acc1_YByte, byteorder='big'))/1000
+        imu1_reading.acc_z = float(int.from_bytes(Acc1_ZByte, byteorder='big'))/1000
+        imu1_reading.gyr_x = float(int.from_bytes(Gyr1_XByte, byteorder='big'))/1000
+        imu1_reading.gyr_y = float(int.from_bytes(Gyr1_YByte, byteorder='big'))/1000
+        imu1_reading.gyr_z = float(int.from_bytes(Gyr1_ZByte, byteorder='big'))/1000
 
-        imu2_reading.acc_x = int.from_bytes(Acc2_XByte, byteorder='big')
-        imu2_reading.acc_y = int.from_bytes(Acc2_YByte, byteorder='big')
-        imu2_reading.acc_z = int.from_bytes(Acc2_ZByte, byteorder='big')
-        imu2_reading.gyr_x = int.from_bytes(Gyr2_XByte, byteorder='big')
-        imu2_reading.gyr_y = int.from_bytes(Gyr2_YByte, byteorder='big')
-        imu2_reading.gyr_z = int.from_bytes(Gyr2_ZByte, byteorder='big')
+        imu2_reading.acc_x = float(int.from_bytes(Acc2_XByte, byteorder='big'))/1000
+        imu2_reading.acc_y = float(int.from_bytes(Acc2_YByte, byteorder='big'))/1000
+        imu2_reading.acc_z = float(int.from_bytes(Acc2_ZByte, byteorder='big'))/1000
+        imu2_reading.gyr_x = float(int.from_bytes(Gyr2_XByte, byteorder='big'))/1000
+        imu2_reading.gyr_y = float(int.from_bytes(Gyr2_YByte, byteorder='big'))/1000
+        imu2_reading.gyr_z = float(int.from_bytes(Gyr2_ZByte, byteorder='big'))/1000
 
         self.get_logger().info("Sending")
 
