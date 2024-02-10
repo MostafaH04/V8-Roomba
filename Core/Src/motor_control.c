@@ -8,8 +8,8 @@
 #include "motor_control.h"
 
 Motor_t MOTOR_init(
-		TIM_HandleTypeDef* timer_fw, uint32_t channel_fw,
-		TIM_HandleTypeDef* timer_bw, uint32_t channel_bw,
+		TIM_HandleTypeDef* const timer_fw, uint32_t channel_fw,
+		TIM_HandleTypeDef* const timer_bw, uint32_t channel_bw,
 		float radius
 	)
 {
@@ -35,16 +35,22 @@ void MOTOR_drive(Motor_t* motor)
 	if (motor->speed >= 0)
 	{
 		__HAL_TIM_SetCompare(motor->timer_fw, motor->channel_fw, motor->speed * AUTO_RELOAD_REG);
+		__HAL_TIM_SetCompare(motor->timer_bw, motor->channel_bw, 0);
 	}
 	else
 	{
 		__HAL_TIM_SetCompare(motor->timer_bw, motor->channel_bw, (-motor->speed) * AUTO_RELOAD_REG);
+		__HAL_TIM_SetCompare(motor->timer_fw, motor->channel_fw, 0);
 	}
 }
 
 void MOTOR_set_speed(Motor_t* motor, float speed)
 {
 	// TODO: make this thread safe
+	if (speed > 1)
+		speed = 1;
+	else if (speed < -1)
+		speed = -1;
 	motor->speed = speed;
 }
 
@@ -90,7 +96,10 @@ void CHASSIS_set_speed(
 
 void CHASSIS_drive(Chassis_Controller_t* chassis)
 {
-
+	for (uint8_t i = 0; i < 4; i++)
+	{
+		MOTOR_drive(chassis->motors[i]);
+	}
 }
 
 static float calculate_wheel_rot(

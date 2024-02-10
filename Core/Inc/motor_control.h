@@ -25,8 +25,8 @@ typedef struct {
 } Motor_t;
 
 Motor_t MOTOR_init(
-		TIM_HandleTypeDef* timer_fw, uint32_t channel_fw,
-		TIM_HandleTypeDef* timer_bw, uint32_t channel_bw,
+		TIM_HandleTypeDef* const timer_fw, uint32_t channel_fw,
+		TIM_HandleTypeDef* const timer_bw, uint32_t channel_bw,
 		float radius
 );
 
