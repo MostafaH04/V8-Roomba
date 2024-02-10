@@ -11,6 +11,7 @@
 #include "tim.h"
 
 #define AUTO_RELOAD_REG 839
+#define MAX_WHEEL_SPEED 16
 
 /* Motor */
 typedef struct {

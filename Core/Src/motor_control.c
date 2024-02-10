@@ -113,6 +113,6 @@ static float calculate_wheel_rot(
 	float ret = speed / radius + (right?-1:1) *
 			wheel_base / 2 * omega / radius;
 
-	return ret;
+	return ret/MAX_WHEEL_SPEED;
 }
 

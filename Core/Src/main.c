@@ -92,6 +92,19 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
+  Motor_t motor1 = MOTOR_init(&htim1,TIM_CHANNEL_1,&htim1,TIM_CHANNEL_2, 0.07f);
+  Motor_t motor2 = MOTOR_init(&htim1,TIM_CHANNEL_3,&htim1,TIM_CHANNEL_4, 0.07f);
+  Motor_t motor3 = MOTOR_init(&htim3,TIM_CHANNEL_1,&htim3,TIM_CHANNEL_2, 0.07f);
+  Motor_t motor4 = MOTOR_init(&htim3,TIM_CHANNEL_3,&htim3,TIM_CHANNEL_4, 0.07f);
+
+  Chassis_Controller_t chassis = CHASSIS_init(
+      &motor1,
+	  &motor2,
+	  &motor3,
+	  &motor4,
+	  0.25
+  );
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
