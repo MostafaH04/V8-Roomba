@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "i2c.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -25,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "motor_control.h"
+#include "imu.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,7 +53,9 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-
+float accX, accY, accZ;
+float gyrX, gyrY, gyrZ;
+float temp;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -90,6 +94,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM1_Init();
   MX_TIM3_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 
   Motor_t motor1 = MOTOR_init(&htim1,TIM_CHANNEL_1,&htim1,TIM_CHANNEL_2, 0.035f);
@@ -105,6 +110,13 @@ int main(void)
 	  0.25
   );
 
+  IMU_t imu_test = IMU_Init(
+	true,
+	&hi2c1,
+	GPIOC,
+	GPIO_PIN_9
+  );
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -112,6 +124,14 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  IMU_updateData(&imu_test);
+	  accX=imu_test.imuData.accX;
+	  accY=imu_test.imuData.accY;
+	  accZ=imu_test.imuData.accZ;
+	  gyrX=imu_test.imuData.gyroX;
+	  gyrY=imu_test.imuData.gyroY;
+	  gyrZ=imu_test.imuData.gyroZ;
+	  temp = imu_test.imuData.temp;
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
