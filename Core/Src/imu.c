@@ -23,6 +23,9 @@ IMU_t IMU_Init(
 {
 	IMU_t ret;
 
+	ret.addressPin = addressPinReg;
+	ret.addressPinVal = addressPin;
+
 	if (setAddressHigh)
 	{
 		ret.address = ADDRESS_HIGH;
@@ -168,7 +171,7 @@ void setFullScaleGyro(IMU_t* imu, Gyro_FullScale gyro_fs_setting)
 	}
 }
 
-void setFullScaleACcel(IMU_t* imu, Accel_FullScale accel_fs_setting)
+void setFullScaleAccel(IMU_t* imu, Accel_FullScale accel_fs_setting)
 {
 	uint8_t config = (uint8_t)(accel_fs_setting << 3);
 	HAL_I2C_Mem_Write(imu->i2c, (imu->address<<1), ACCEL_CONFIG, 1,
@@ -208,7 +211,7 @@ void readAccelRegisters(IMU_t* imu)
 	imu->imuData.accZ = accelZ;
 }
 
-void readyGyroRegisters(IMU_t* imu)
+void readGyroRegisters(IMU_t* imu)
 {
 	int16_t gyroX, gyroY, gyroZ;
 	uint8_t gyroRec[6];
