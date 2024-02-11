@@ -124,7 +124,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  updateData(&imu_test);
+	  IMU_updateData(&imu_test);
 	  accX=imu_test.imuData.accX;
 	  accY=imu_test.imuData.accY;
 	  accZ=imu_test.imuData.accZ;

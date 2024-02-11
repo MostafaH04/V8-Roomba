@@ -44,7 +44,7 @@ IMU_t IMU_Init(
 	return ret;
 }
 
-bool selfTest(IMU_t* imu)
+bool IMU_selfTest(IMU_t* imu)
 {
 	uint8_t test_recv[4];
 
@@ -55,8 +55,8 @@ bool selfTest(IMU_t* imu)
 	HAL_I2C_Mem_Write(imu->i2c, (imu->address<<1), GYRO_CONFIG, 1,
 			normalMeas, 1, HAL_MAX_DELAY);
 
-	readAccelRegisters(imu);
-	readGyroRegisters(imu);
+	IMU_readAccelRegisters(imu);
+	IMU_readGyroRegisters(imu);
 
 	GyroXDisabled = imu->imuData.gyroX;
 	GyroYDisabled = imu->imuData.gyroY;
@@ -73,8 +73,8 @@ bool selfTest(IMU_t* imu)
 	HAL_I2C_Mem_Write(imu->i2c, (imu->address<<1), GYRO_CONFIG, 1,
 			&selfTest, sizeof(selfTest), HAL_MAX_DELAY);
 
-	readAccelRegisters(imu);
-	readGyroRegisters(imu);
+	IMU_readAccelRegisters(imu);
+	IMU_readGyroRegisters(imu);
 
 	StrGyroX = imu->imuData.gyroX - GyroXDisabled;
 	StrGyroY = imu->imuData.gyroY - GyroYDisabled;
@@ -141,14 +141,14 @@ bool selfTest(IMU_t* imu)
 			&& passGyroY && passGyroZ;
 }
 
-void setSampleRate(IMU_t* imu, uint16_t sample_rate_khz)
+void IMU_setSampleRate(IMU_t* imu, uint16_t sample_rate_khz)
 {
 	uint8_t rate_divider = (uint8_t)((GYRO_OUTPUT_RATE_HZ / sample_rate_khz) - 1);
 	HAL_I2C_Mem_Write(imu->i2c, (imu->address<<1), SMPLRT_DIV, 1,
 			&rate_divider, 1, HAL_MAX_DELAY);
 }
 
-void setFullScaleGyro(IMU_t* imu, Gyro_FullScale gyro_fs_setting)
+void IMU_setFullScaleGyro(IMU_t* imu, Gyro_FullScale gyro_fs_setting)
 {
 	uint8_t config = (uint8_t)(gyro_fs_setting << 3);
 	HAL_I2C_Mem_Write(imu->i2c, (imu->address<<1), GYRO_CONFIG, 1,
@@ -171,7 +171,7 @@ void setFullScaleGyro(IMU_t* imu, Gyro_FullScale gyro_fs_setting)
 	}
 }
 
-void setFullScaleAccel(IMU_t* imu, Accel_FullScale accel_fs_setting)
+void IMU_setFullScaleAccel(IMU_t* imu, Accel_FullScale accel_fs_setting)
 {
 	uint8_t config = (uint8_t)(accel_fs_setting << 3);
 	HAL_I2C_Mem_Write(imu->i2c, (imu->address<<1), ACCEL_CONFIG, 1,
@@ -194,7 +194,7 @@ void setFullScaleAccel(IMU_t* imu, Accel_FullScale accel_fs_setting)
 	}
 }
 
-void readAccelRegisters(IMU_t* imu)
+void IMU_readAccelRegisters(IMU_t* imu)
 {
 	int16_t accelX, accelY, accelZ;
 	uint8_t accelRec[6];
@@ -211,7 +211,7 @@ void readAccelRegisters(IMU_t* imu)
 	imu->imuData.accZ = accelZ;
 }
 
-void readGyroRegisters(IMU_t* imu)
+void IMU_readGyroRegisters(IMU_t* imu)
 {
 	int16_t gyroX, gyroY, gyroZ;
 	uint8_t gyroRec[6];
@@ -228,7 +228,7 @@ void readGyroRegisters(IMU_t* imu)
 	imu->imuData.gyroZ = gyroZ;
 }
 
-void readTempRegisters(IMU_t* imu)
+void IMU_readTempRegisters(IMU_t* imu)
 {
 	int16_t temp;
 	uint8_t tempRecv[2];
@@ -242,22 +242,22 @@ void readTempRegisters(IMU_t* imu)
 	imu->imuData.temp = temp;
 }
 
-void updateData(IMU_t* imu)
+void IMU_updateData(IMU_t* imu)
 {
-	readTempRegisters(imu);
-	readGyroRegisters(imu);
-	readAccelRegisters(imu);
+	IMU_readTempRegisters(imu);
+	IMU_readGyroRegisters(imu);
+	IMU_readAccelRegisters(imu);
 	correct_data(imu);
 }
 
-void resetRegisters(IMU_t* imu)
+void IMU_resetRegisters(IMU_t* imu)
 {
 	uint8_t resetRegisters = 0x07; // 0b00000111
 	HAL_I2C_Mem_Write(imu->i2c, (imu->address<<1), SIGNAL_PATH_RESET, 1,
 			&resetRegisters, 1, HAL_MAX_DELAY);
 }
 
-void sleepMode(IMU_t* imu, bool sleep)
+void IMU_sleepMode(IMU_t* imu, bool sleep)
 {
 	uint8_t pwr_mgmt = 0x00;
 	HAL_I2C_Mem_Read(imu->i2c, (imu->address<<1) | 0x01, PWR_MGMT_1, 1,
@@ -268,7 +268,7 @@ void sleepMode(IMU_t* imu, bool sleep)
 	HAL_I2C_Mem_Write(imu->i2c, (imu->address<<1), PWR_MGMT_1, 1,
 			&pwr_mgmt, 1, HAL_MAX_DELAY);
 }
-void selectClockSource(IMU_t* imu, Clock_Select clock_sel)
+void IMU_selectClockSource(IMU_t* imu, Clock_Select clock_sel)
 {
 	uint8_t pwr_mgmt = 0x00;
 	HAL_I2C_Mem_Read(imu->i2c, (imu->address<<1) | 0x01, PWR_MGMT_1, 1,
@@ -280,7 +280,7 @@ void selectClockSource(IMU_t* imu, Clock_Select clock_sel)
 			&pwr_mgmt, 1, HAL_MAX_DELAY);
 }
 
-void disableTemp(IMU_t* imu, bool disable)
+void IMU_disableTemp(IMU_t* imu, bool disable)
 {
 	uint8_t pwr_mgmt = 0x00;
 	HAL_I2C_Mem_Read(imu->i2c, (imu->address<<1) | 0x01, PWR_MGMT_1, 1,
@@ -292,7 +292,7 @@ void disableTemp(IMU_t* imu, bool disable)
 			&pwr_mgmt, 1, HAL_MAX_DELAY);
 }
 
-void sleepCycle(IMU_t* imu, Wake_Up_Frequency cycleFreq)
+void IMU_sleepCycle(IMU_t* imu, Wake_Up_Frequency cycleFreq)
 {
 	uint8_t pwr_mgmt2 = (uint8_t)(cycleFreq << 6);
 	HAL_I2C_Mem_Write(imu->i2c, (imu->address<<1), PWR_MGMT_2, 1,
@@ -307,9 +307,9 @@ static void calibrate_imu(IMU_t* imu)
 
 	for (int measIter = 0; measIter < TOTAL_MEASUREMENTS; measIter ++)
 	{
-		readTempRegisters(imu);
-		readGyroRegisters(imu);
-		readAccelRegisters(imu);
+		IMU_readTempRegisters(imu);
+		IMU_readGyroRegisters(imu);
+		IMU_readAccelRegisters(imu);
 
 		buffAx += imu->imuData.accX;
 		buffAy += imu->imuData.accY;
@@ -362,15 +362,15 @@ static void startPins(IMU_t* imu)
 
 static bool initialize(IMU_t* imu)
 {
-	sleepMode(imu, false);
-	resetRegisters(imu);
-	disableTemp(imu, false);
-	setFullScaleAccel(imu, ACCEL_FULLSCALE_16);
-	setFullScaleGyro(imu, GYRO_FULLSCALE_1000);
-	selectClockSource(imu, INTERNAL_8MHZ);
+	IMU_sleepMode(imu, false);
+	IMU_resetRegisters(imu);
+	IMU_disableTemp(imu, false);
+	IMU_setFullScaleAccel(imu, ACCEL_FULLSCALE_16);
+	IMU_setFullScaleGyro(imu, GYRO_FULLSCALE_1000);
+	IMU_selectClockSource(imu, INTERNAL_8MHZ);
 	calibrate_imu(imu);
 
-	if(!selfTest(imu))
+	if(!IMU_selfTest(imu))
 	{
 		return INIT_FAIL;
 	}

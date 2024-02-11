@@ -211,18 +211,18 @@ IMU_t IMU_Init(
 	uint16_t addressPin
 );
 
-bool selfTest(IMU_t* imu);
-void setSampleRate(IMU_t* imu, uint16_t sample_rate_khz);
-void setFullScaleGyro(IMU_t* imu, Gyro_FullScale gyro_fs_setting);
-void setFullScaleAccel(IMU_t* imu, Accel_FullScale accel_fs_setting);
-void readAccelRegisters(IMU_t* imu);
-void readGyroRegisters(IMU_t* imu);
-void readTempRegisters(IMU_t* imu);
-void updateData(IMU_t* imu);
-void resetRegisters(IMU_t* imu);
-void sleepMode(IMU_t* imu, bool sleep);
-void selectClockSource(IMU_t* imu, Clock_Select clock_sel);
-void disableTemp(IMU_t* imu, bool disable);
-void sleepCycle(IMU_t* imu, Wake_Up_Frequency cycleFreq);
+bool IMU_selfTest(IMU_t* imu);
+void IMU_setSampleRate(IMU_t* imu, uint16_t sample_rate_khz);
+void IMU_setFullScaleGyro(IMU_t* imu, Gyro_FullScale gyro_fs_setting);
+void IMU_setFullScaleAccel(IMU_t* imu, Accel_FullScale accel_fs_setting);
+void IMU_readAccelRegisters(IMU_t* imu);
+void IMU_readGyroRegisters(IMU_t* imu);
+void IMU_readTempRegisters(IMU_t* imu);
+void IMU_updateData(IMU_t* imu);
+void IMU_resetRegisters(IMU_t* imu);
+void IMU_sleepMode(IMU_t* imu, bool sleep);
+void IMU_selectClockSource(IMU_t* imu, Clock_Select clock_sel);
+void IMU_disableTemp(IMU_t* imu, bool disable);
+void IMU_sleepCycle(IMU_t* imu, Wake_Up_Frequency cycleFreq);
 
 #endif /* IMU_H */
