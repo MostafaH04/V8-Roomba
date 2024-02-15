@@ -12,17 +12,17 @@
 UART_HandleTypeDef* g_lidar_uart;
 Lidar_t g_lidar;
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-	if (huart == g_lidar_uart)
-	{
-		// TODO: stop this from happening if LiDAR isn't initialized yet
-		if (LIDAR_scan(&g_lidar))
-		{
-			// TODO: Determine what if LiDAR is indeed running
-		}
-	}
-}
+//void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+//{
+//	if (huart == g_lidar_uart)
+//	{
+//		// TODO: stop this from happening if LiDAR isn't initialized yet
+//		if (LIDAR_scan(&g_lidar))
+//		{
+//			// TODO: Determine what if LiDAR is indeed running
+//		}
+//	}
+//}
 
 bool LIDAR_init(UART_HandleTypeDef* huart)
 {

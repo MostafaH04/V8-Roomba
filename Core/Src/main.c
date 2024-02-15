@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "i2c.h"
 #include "tim.h"
 #include "usart.h"
@@ -27,6 +28,7 @@
 /* USER CODE BEGIN Includes */
 #include "motor_control.h"
 #include "imu.h"
+#include "comms.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,6 +58,7 @@ void SystemClock_Config(void);
 float accX, accY, accZ;
 float gyrX, gyrY, gyrZ;
 float temp;
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -91,10 +94,11 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART1_UART_Init();
+  MX_DMA_Init();
   MX_TIM1_Init();
   MX_TIM3_Init();
   MX_I2C1_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
   Motor_t motor1 = MOTOR_init(&htim1,TIM_CHANNEL_1,&htim1,TIM_CHANNEL_2, 0.035f);
@@ -117,6 +121,8 @@ int main(void)
 	GPIO_PIN_9
   );
 
+  HAL_UART_Receive_DMA(&huart2, rx_data_buffer, RX_DATA_BUFFER_SIZE);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -124,14 +130,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  IMU_updateData(&imu_test);
-	  accX=imu_test.imuData.accX;
-	  accY=imu_test.imuData.accY;
-	  accZ=imu_test.imuData.accZ;
-	  gyrX=imu_test.imuData.gyroX;
-	  gyrY=imu_test.imuData.gyroY;
-	  gyrZ=imu_test.imuData.gyroZ;
-	  temp = imu_test.imuData.temp;
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -184,7 +183,13 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	parse_command();
+	process_sensor_data();
+	HAL_UART_Transmit(&huart2, tx_data_buffer, TX_DATA_BUFFER_SIZE, 100);
+	HAL_UART_Receive_DMA(&huart2, rx_data_buffer, RX_DATA_BUFFER_SIZE);
+}
 /* USER CODE END 4 */
 
 /**
