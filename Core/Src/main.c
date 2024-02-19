@@ -115,13 +115,13 @@ int main(void)
   );
 
   IMU_t imu_test = IMU_Init(
-	true,
+	false,
 	&hi2c1,
 	GPIOC,
 	GPIO_PIN_9
   );
 
-  HAL_UART_Receive_DMA(&huart2, rx_data_buffer, RX_DATA_BUFFER_SIZE);
+  Init_comms(&huart2);
 
   /* USER CODE END 2 */
 
@@ -129,9 +129,15 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
+	/* USER CODE END WHILE */
+	CHASSIS_drive(&chassis);
+	IMU_updateData(&imu_test);
+	float omega = comms.incoming_data.twist.angular[2];
+	float speed = comms.incoming_data.twist.linear[0];
+	CHASSIS_set_speed(&chassis, speed, omega);
+	process_sensor_data(&(imu_test.imuData));
+	HAL_UART_Transmit(comms.uart, tx_data_buffer, TX_DATA_BUFFER_SIZE, 1000);
+	/* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
@@ -185,10 +191,11 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	parse_command();
-	process_sensor_data();
-	HAL_UART_Transmit(&huart2, tx_data_buffer, TX_DATA_BUFFER_SIZE, 100);
-	HAL_UART_Receive_DMA(&huart2, rx_data_buffer, RX_DATA_BUFFER_SIZE);
+	if (huart == comms.uart)
+	{
+		parse_command();
+		HAL_UART_Receive_DMA(comms.uart, rx_data_buffer, RX_DATA_BUFFER_SIZE);
+	}
 }
 /* USER CODE END 4 */
 

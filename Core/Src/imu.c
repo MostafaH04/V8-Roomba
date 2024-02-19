@@ -313,7 +313,7 @@ static void calibrate_imu(IMU_t* imu)
 
 		buffAx += imu->imuData.accX;
 		buffAy += imu->imuData.accY;
-		buffAz += imu->imuData.accZ - imu->LSB_g * (imu->address == ADDRESS_HIGH?-1:1);
+		buffAz += imu->imuData.accZ + imu->LSB_g * (imu->address == ADDRESS_HIGH?-1:1);
 
 		buffGx += imu->imuData.gyroX;
 		buffGy += imu->imuData.gyroY;

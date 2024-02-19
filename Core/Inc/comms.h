@@ -12,9 +12,10 @@
 #include "imu.h"
 #include "motor_control.h"
 #include "string.h"
+#include "stdbool.h"
 
 #define RX_DATA_BUFFER_SIZE 25
-#define TX_DATA_BUFFER_SIZE 28
+#define TX_DATA_BUFFER_SIZE 29
 
 typedef struct {
 	float linear[3];
@@ -40,13 +41,13 @@ typedef struct {
 	Sensor_Data_t outgoing_sensor_data;
 } Comms_t;
 
-static Comms_t comms;
+extern Comms_t comms;
 extern unsigned char* rx_data_buffer;
 extern unsigned char* tx_data_buffer;
 
-void Init_comms(UART_HandleTypeDef* huart, IMU_Data_t* imuData);
+void Init_comms(UART_HandleTypeDef* huart);
 void parse_command(void);
-void process_sensor_data(void);
+void process_sensor_data(IMU_Data_t* imuData);
 
 
 #endif /* COMMS_H */
