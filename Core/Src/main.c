@@ -55,10 +55,6 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-float accX, accY, accZ;
-float gyrX, gyrY, gyrZ;
-float temp;
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -99,6 +95,7 @@ int main(void)
   MX_TIM3_Init();
   MX_I2C1_Init();
   MX_USART2_UART_Init();
+  MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
 
   Motor_t motor1 = MOTOR_init(&htim1,TIM_CHANNEL_1,&htim1,TIM_CHANNEL_2, 0.035f);
@@ -114,11 +111,18 @@ int main(void)
 	  0.25
   );
 
-  IMU_t imu_test = IMU_Init(
+  IMU_t imu_1 = IMU_Init(
 	false,
 	&hi2c1,
 	GPIOC,
 	GPIO_PIN_9
+  );
+
+  IMU_t imu_2 = IMU_Init(
+	true,
+	&hi2c2,
+	GPIOC,
+	GPIO_PIN_8
   );
 
   Init_comms(&huart2);
@@ -131,11 +135,12 @@ int main(void)
   {
 	/* USER CODE END WHILE */
 	CHASSIS_drive(&chassis);
-	IMU_updateData(&imu_test);
+	IMU_updateData(&imu_1);
+	IMU_updateData(&imu_2);
 	float omega = comms.incoming_data.twist.angular[2];
 	float speed = comms.incoming_data.twist.linear[0];
 	CHASSIS_set_speed(&chassis, speed, omega);
-	process_sensor_data(&(imu_test.imuData));
+	process_sensor_data(&(imu_1.imuData), &(imu_2.imuData));
 	HAL_UART_Transmit(comms.uart, tx_data_buffer, TX_DATA_BUFFER_SIZE, 1000);
 	/* USER CODE BEGIN 3 */
   }

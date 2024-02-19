@@ -15,7 +15,7 @@
 #include "stdbool.h"
 
 #define RX_DATA_BUFFER_SIZE 25
-#define TX_DATA_BUFFER_SIZE 29
+#define TX_DATA_BUFFER_SIZE 57
 
 typedef struct {
 	float linear[3];
@@ -31,7 +31,8 @@ typedef struct {
 
 typedef struct {
 	unsigned char out_data[TX_DATA_BUFFER_SIZE];
-	IMU_Data_t* imuData;
+	IMU_Data_t* imuData_1;
+	IMU_Data_t* imuData_2;
 } Sensor_Data_t;
 
 typedef struct {
@@ -47,7 +48,7 @@ extern unsigned char* tx_data_buffer;
 
 void Init_comms(UART_HandleTypeDef* huart);
 void parse_command(void);
-void process_sensor_data(IMU_Data_t* imuData);
+void process_sensor_data(IMU_Data_t* imuData_1, IMU_Data_t* imuData_2);
 
 
 #endif /* COMMS_H */

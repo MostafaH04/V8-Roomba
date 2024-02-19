@@ -59,25 +59,40 @@ void parse_command(void)
 	}
 }
 
-void process_sensor_data(IMU_Data_t* imuData)
+void process_sensor_data(IMU_Data_t* imuData_1, IMU_Data_t* imuData_2)
 {
-	comms.outgoing_sensor_data.imuData = imuData;
+	comms.outgoing_sensor_data.imuData_1 = imuData_1;
 
 	float imu_data[7];
 	unsigned char* buffer = comms.outgoing_sensor_data.out_data;
 	buffer[0] = 0xFF;
 
-	imu_data[0] = comms.outgoing_sensor_data.imuData->accX;
-	imu_data[1] = comms.outgoing_sensor_data.imuData->accY;
-	imu_data[2] = comms.outgoing_sensor_data.imuData->accZ;
-	imu_data[3] = comms.outgoing_sensor_data.imuData->gyroX;
-	imu_data[4] = comms.outgoing_sensor_data.imuData->gyroY;
-	imu_data[5] = comms.outgoing_sensor_data.imuData->gyroZ;
-	imu_data[6] = comms.outgoing_sensor_data.imuData->temp;
+	imu_data[0] = comms.outgoing_sensor_data.imuData_1->accX;
+	imu_data[1] = comms.outgoing_sensor_data.imuData_1->accY;
+	imu_data[2] = comms.outgoing_sensor_data.imuData_1->accZ;
+	imu_data[3] = comms.outgoing_sensor_data.imuData_1->gyroX;
+	imu_data[4] = comms.outgoing_sensor_data.imuData_1->gyroY;
+	imu_data[5] = comms.outgoing_sensor_data.imuData_1->gyroZ;
+	imu_data[6] = comms.outgoing_sensor_data.imuData_1->temp;
 
 	for (uint8_t i = 0; i < 8; i++)
 	{
 		memcpy(&buffer[i*sizeof(float)+1], &imu_data[i], sizeof(float));
+	}
+
+	comms.outgoing_sensor_data.imuData_2 = imuData_2;
+
+	imu_data[0] = comms.outgoing_sensor_data.imuData_2->accX;
+	imu_data[1] = comms.outgoing_sensor_data.imuData_2->accY;
+	imu_data[2] = comms.outgoing_sensor_data.imuData_2->accZ;
+	imu_data[3] = comms.outgoing_sensor_data.imuData_2->gyroX;
+	imu_data[4] = comms.outgoing_sensor_data.imuData_2->gyroY;
+	imu_data[5] = comms.outgoing_sensor_data.imuData_2->gyroZ;
+	imu_data[6] = comms.outgoing_sensor_data.imuData_2->temp;
+
+	for (uint8_t i = 0; i < 8; i++)
+	{
+		memcpy(&buffer[i*sizeof(float)+29], &imu_data[i], sizeof(float));
 	}
 }
 

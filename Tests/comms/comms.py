@@ -28,7 +28,7 @@ def handle_comms():
     buffer_size = 0
     buffer = [0]*MAX_BUFFER
 
-    INCOMING_BYTES = 7
+    INCOMING_BYTES = 14
 
     data_pointer = 0
     data = [0] * INCOMING_BYTES
@@ -49,15 +49,15 @@ def handle_comms():
             temp = ser.read()
             #print(temp)
             if not need_sync:
-                for i in range(28):
+                for i in range(INCOMING_BYTES*4):
                     if temp == b'\xff': break
                     buffer[buffer_end] = temp
                     buffer_end = (buffer_end + 1) % MAX_BUFFER
                     buffer_size += 1
-                    if i != 27:
+                    if i != 55:
                         temp = ser.read()
 
-            if temp == b'\xff' or ser.in_waiting > 30:
+            if temp == b'\xff' or ser.in_waiting > 60:
                 need_sync = False
                 buffer_start = 0
                 buffer_end = 0
@@ -65,7 +65,7 @@ def handle_comms():
                 buffer = [0]*MAX_BUFFER
                 data_pointer = 0
                 data = [0] * INCOMING_BYTES
-                if ser.in_waiting > 30:
+                if ser.in_waiting > 60:
                     ser.flushInput() # YEET we need latest info
                 
 
@@ -81,7 +81,8 @@ def handle_comms():
             if data_pointer >= INCOMING_BYTES:
                 data_pointer = 0
                 need_sync = True
-                print(data)
+                print(data[:7])
+                print(data[7:])
 
 
 if __name__ == '__main__':
