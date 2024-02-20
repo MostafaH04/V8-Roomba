@@ -35,8 +35,8 @@ def handle_comms():
 
     need_sync = True
 
-    linear = [0.4, 0.0, 0.0]
-    angular = [0, 0, 0.1]
+    linear = [-0.7, 0.0, 0.0]
+    angular = [0, 0, 1]
 
     while connected:
         roomba_control_vector = linear + angular
