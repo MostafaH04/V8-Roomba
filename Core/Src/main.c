@@ -18,12 +18,17 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
+#include "i2c.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "lidar.h"
+#include "motor_control.h"
+#include "imu.h"
+#include "comms.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -50,7 +55,6 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -86,18 +90,59 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART1_UART_Init();
+  MX_DMA_Init();
+  MX_TIM1_Init();
+  MX_TIM3_Init();
+  MX_I2C1_Init();
+  MX_USART2_UART_Init();
+  MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
-  LIDAR_init(&huart1);
+
+  Motor_t motor1 = MOTOR_init(&htim1,TIM_CHANNEL_1,&htim1,TIM_CHANNEL_2, 0.035f);
+  Motor_t motor2 = MOTOR_init(&htim1,TIM_CHANNEL_3,&htim1,TIM_CHANNEL_4, 0.035f);
+  Motor_t motor3 = MOTOR_init(&htim3,TIM_CHANNEL_1,&htim3,TIM_CHANNEL_2, 0.035f);
+  Motor_t motor4 = MOTOR_init(&htim3,TIM_CHANNEL_3,&htim3,TIM_CHANNEL_4, 0.035f);
+
+  Chassis_Controller_t chassis = CHASSIS_init(
+      &motor1,
+	  &motor2,
+	  &motor3,
+	  &motor4,
+	  0.25
+  );
+
+  IMU_t imu_1 = IMU_Init(
+	false,
+	&hi2c1,
+	GPIOC,
+	GPIO_PIN_9
+  );
+
+  IMU_t imu_2 = IMU_Init(
+	true,
+	&hi2c2,
+	GPIOC,
+	GPIO_PIN_8
+  );
+
+  Init_comms(&huart2);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-	LIDAR_start_scan(&g_lidar);
-    /* USER CODE BEGIN 3 */
+	/* USER CODE END WHILE */
+	CHASSIS_drive(&chassis);
+	IMU_updateData(&imu_1);
+	IMU_updateData(&imu_2);
+	float omega = comms.incoming_data.twist.angular[2];
+	float speed = comms.incoming_data.twist.linear[0];
+	CHASSIS_set_speed(&chassis, speed, omega);
+	process_sensor_data(&(imu_1.imuData), &(imu_2.imuData));
+	HAL_UART_Transmit(comms.uart, tx_data_buffer, TX_DATA_BUFFER_SIZE, 1000);
+	/* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
@@ -149,7 +194,14 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if (huart == comms.uart)
+	{
+		parse_command();
+		HAL_UART_Receive_DMA(comms.uart, rx_data_buffer, RX_DATA_BUFFER_SIZE);
+	}
+}
 /* USER CODE END 4 */
 
 /**
