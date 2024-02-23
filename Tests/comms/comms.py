@@ -6,7 +6,7 @@ def handle_comms():
     import serial
     import struct
 
-    port = '/dev/ttyACM0'
+    port = '/dev/ttyS0'
     baudrate = 115200
     timeout = 30
 
@@ -35,8 +35,8 @@ def handle_comms():
 
     need_sync = True
 
-    linear = [-0.7, 0.0, 0.0]
-    angular = [0, 0, 1]
+    linear = [1, 0.0, 0.0]
+    angular = [0, 0, 0]
 
     while connected:
         roomba_control_vector = linear + angular
@@ -47,7 +47,6 @@ def handle_comms():
 
         if ser.in_waiting and buffer_size < MAX_BUFFER:
             temp = ser.read()
-            #print(temp)
             if not need_sync:
                 for i in range(INCOMING_BYTES*4):
                     if temp == b'\xff': break
@@ -57,15 +56,15 @@ def handle_comms():
                     if i != 55:
                         temp = ser.read()
 
-            if temp == b'\xff' or ser.in_waiting > 60:
-                need_sync = False
+            if temp == b'\xff' or ser.in_waiting > 100:
                 buffer_start = 0
+                need_sync = False
                 buffer_end = 0
                 buffer_size = 0
                 buffer = [0]*MAX_BUFFER
                 data_pointer = 0
                 data = [0] * INCOMING_BYTES
-                if ser.in_waiting > 60:
+                if temp != b'\xff':
                     ser.flushInput() # YEET we need latest info
                 
 
@@ -75,7 +74,6 @@ def handle_comms():
                 data_bytes.append(buffer[buffer_start])
                 buffer_start = (buffer_start + 1) % MAX_BUFFER
                 buffer_size -= 1
-            #print(data_pointer, b''.join(data_bytes))
             data[data_pointer] = struct.unpack('f', b''.join(data_bytes))
             data_pointer += 1
             if data_pointer >= INCOMING_BYTES:
