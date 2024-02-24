@@ -1,0 +1,10 @@
+../Core/Src/lidar.c:27:6:LIDAR_init	2
+../Core/Src/lidar.c:42:6:LIDAR_scan	3
+../Core/Src/lidar.c:73:6:LIDAR_start_scan	2
+../Core/Src/lidar.c:100:6:LIDAR_stop	2
+../Core/Src/lidar.c:114:6:LIDAR_info	3
+../Core/Src/lidar.c:147:6:LIDAR_health	3
+../Core/Src/lidar.c:180:6:LIDAR_reboot	1
+../Core/Src/lidar.c:197:13:angle_analysis	1
+../Core/Src/lidar.c:202:13:distance_analysis	1
+../Core/Src/lidar.c:207:13:check_parsing	1

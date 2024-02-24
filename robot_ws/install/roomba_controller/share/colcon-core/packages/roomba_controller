@@ -1,1 +1,1 @@
-more_interfaces:pyserial:rclpy
+geometry_msgs:more_interfaces:pyserial:rclpy

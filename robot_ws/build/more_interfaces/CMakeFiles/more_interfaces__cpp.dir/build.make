@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces
+CMAKE_SOURCE_DIR = /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/more_interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces
+CMAKE_BINARY_DIR = /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces
 
 # Utility rule file for more_interfaces__cpp.
 
@@ -66,61 +66,40 @@ include CMakeFiles/more_interfaces__cpp.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/more_interfaces__cpp.dir/progress.make
 
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/controls.hpp
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/controls__builder.hpp
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/controls__struct.hpp
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/controls__traits.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/readings.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/readings__builder.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/readings__struct.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/readings__traits.hpp
 
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/lib/rosidl_generator_cpp/rosidl_generator_cpp
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_cpp/__init__.py
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/action__builder.hpp.em
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/action__struct.hpp.em
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/action__traits.hpp.em
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/idl.hpp.em
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/idl__builder.hpp.em
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/idl__struct.hpp.em
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/idl__traits.hpp.em
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/msg__builder.hpp.em
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/msg__struct.hpp.em
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/msg__traits.hpp.em
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__builder.hpp.em
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__struct.hpp.em
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: rosidl_adapter/more_interfaces/msg/Controls.idl
-rosidl_generator_cpp/more_interfaces/msg/controls.hpp: rosidl_adapter/more_interfaces/msg/Readings.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
-	/usr/bin/python3.10 /opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/rosidl_generator_cpp__arguments.json
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/lib/rosidl_generator_cpp/rosidl_generator_cpp
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_cpp/__init__.py
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/action__builder.hpp.em
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/action__struct.hpp.em
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/action__traits.hpp.em
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/idl.hpp.em
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/idl__builder.hpp.em
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/idl__struct.hpp.em
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/idl__traits.hpp.em
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/msg__builder.hpp.em
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/msg__struct.hpp.em
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/msg__traits.hpp.em
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__builder.hpp.em
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__struct.hpp.em
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
+rosidl_generator_cpp/more_interfaces/msg/readings.hpp: rosidl_adapter/more_interfaces/msg/Readings.idl
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
+	/usr/bin/python3.10 /opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/rosidl_generator_cpp__arguments.json
 
-rosidl_generator_cpp/more_interfaces/msg/detail/controls__builder.hpp: rosidl_generator_cpp/more_interfaces/msg/controls.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/controls__builder.hpp
-
-rosidl_generator_cpp/more_interfaces/msg/detail/controls__struct.hpp: rosidl_generator_cpp/more_interfaces/msg/controls.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/controls__struct.hpp
-
-rosidl_generator_cpp/more_interfaces/msg/detail/controls__traits.hpp: rosidl_generator_cpp/more_interfaces/msg/controls.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/controls__traits.hpp
-
-rosidl_generator_cpp/more_interfaces/msg/readings.hpp: rosidl_generator_cpp/more_interfaces/msg/controls.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/readings.hpp
-
-rosidl_generator_cpp/more_interfaces/msg/detail/readings__builder.hpp: rosidl_generator_cpp/more_interfaces/msg/controls.hpp
+rosidl_generator_cpp/more_interfaces/msg/detail/readings__builder.hpp: rosidl_generator_cpp/more_interfaces/msg/readings.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/readings__builder.hpp
 
-rosidl_generator_cpp/more_interfaces/msg/detail/readings__struct.hpp: rosidl_generator_cpp/more_interfaces/msg/controls.hpp
+rosidl_generator_cpp/more_interfaces/msg/detail/readings__struct.hpp: rosidl_generator_cpp/more_interfaces/msg/readings.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/readings__struct.hpp
 
-rosidl_generator_cpp/more_interfaces/msg/detail/readings__traits.hpp: rosidl_generator_cpp/more_interfaces/msg/controls.hpp
+rosidl_generator_cpp/more_interfaces/msg/detail/readings__traits.hpp: rosidl_generator_cpp/more_interfaces/msg/readings.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/readings__traits.hpp
 
 more_interfaces__cpp: CMakeFiles/more_interfaces__cpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/controls.hpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/controls__builder.hpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/controls__struct.hpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/controls__traits.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/readings__builder.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/readings__struct.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/readings__traits.hpp
@@ -137,6 +116,6 @@ CMakeFiles/more_interfaces__cpp.dir/clean:
 .PHONY : CMakeFiles/more_interfaces__cpp.dir/clean
 
 CMakeFiles/more_interfaces__cpp.dir/depend:
-	cd /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces /home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles/more_interfaces__cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/more_interfaces /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/more_interfaces /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles/more_interfaces__cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/more_interfaces__cpp.dir/depend
 

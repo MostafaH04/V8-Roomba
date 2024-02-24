@@ -1,8 +1,8 @@
-# Install script for directory: /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/more_interfaces__py
+# Install script for directory: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/more_interfaces__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/mahus/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces")
+  set(CMAKE_INSTALL_PREFIX "/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

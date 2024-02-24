@@ -1,10 +1,9 @@
 {
   "package_name": "more_interfaces",
-  "output_dir": "/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/rosidl_generator_cpp/more_interfaces",
+  "output_dir": "/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/rosidl_generator_cpp/more_interfaces",
   "template_dir": "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource",
   "idl_tuples": [
-    "/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/rosidl_adapter/more_interfaces:msg/Controls.idl",
-    "/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/rosidl_adapter/more_interfaces:msg/Readings.idl"
+    "/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/rosidl_adapter/more_interfaces:msg/Readings.idl"
   ],
   "target_dependencies": [
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp",
@@ -22,7 +21,6 @@
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__builder.hpp.em",
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__struct.hpp.em",
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__traits.hpp.em",
-    "/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/rosidl_adapter/more_interfaces/msg/Controls.idl",
-    "/home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/rosidl_adapter/more_interfaces/msg/Readings.idl"
+    "/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/rosidl_adapter/more_interfaces/msg/Readings.idl"
   ]
 }

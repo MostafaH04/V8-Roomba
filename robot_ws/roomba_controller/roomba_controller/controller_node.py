@@ -2,8 +2,9 @@
 import rclpy
 from rclpy.node import Node
 import serial
+import struct
 
-from more_interfaces.msg import Controls
+from geometry_msgs.msg import Twist
 from more_interfaces.msg import Readings
 
 class RoombaController(Node):
@@ -15,8 +16,8 @@ class RoombaController(Node):
         }
 
         self.controlSub = self.create_subscription(
-            Controls,
-            "/roomba/controls",
+            Twist,
+            "/roomba/cmd_vel",
             self.controlCallBack,
             10
         )
@@ -31,63 +32,98 @@ class RoombaController(Node):
             10
         )
 
-        self.timer = self.create_timer(0.005, self.readData)
+        self.timer = self.create_timer(0.001, self.readData)
 
         self.serPort = serial.Serial("/dev/ttyS0", 115200, timeout=1)
+        self.serPort.flushInput()
+        self.serPort.flushOutput()
+        self.controls = [0, 0, 0, 0, 0, 0]
+
+        self.MAX_BUFFER = 255
+
+        self.buffer_start = 0
+        self.buffer_end = 0
+        self.buffer_size = 0
+        self.buffer = [0]*self.MAX_BUFFER
+
+        self.INCOMING_BYTES = 14
+
+        self.data_pointer = 0
+        self.data = [0] * self.INCOMING_BYTES
+
+        self.need_sync = True
 
         self.get_logger().info("V8-Roomba Comms Controller Initialized")
 
-    def controlCallBack(self, control: Controls):
-        speedIn = int(Controls.speed*1000)
-        speedByte = speedIn.to_bytes(2,"big")
-
-        steeringIn = int(Controls.steering*1000)
-        steeringByte = speedIn.to_bytes(2,"big")
-
-        self.controlBuffer['speed'] = speedByte
-        self.controlBuffer['angle'] = steeringByte
+    def controlCallBack(self, inTwist):
+        linear = inTwist.linear
+        linearArr = [linear.x, linear.y, linear.z]
+        angular = inTwist.angular
+        angularArr = [angular.x, angular.y, angular.z]
+        self.controls = linearArr + angularArr
 
     def readData(self):
-        InfoByte = self.serPort.read()
-        Acc1_XByte = self.serPort.read(2)
-        Acc1_YByte = self.serPort.read(2)
-        Acc1_ZByte = self.serPort.read(2)
-        Gyr1_XByte = self.serPort.read(2)
-        Gyr1_YByte = self.serPort.read(2)
-        Gyr1_ZByte = self.serPort.read(2)
+        roomba_control_vector = self.controls
+        self.serPort.write(b'\xff')
+        for val in roomba_control_vector:
+            self.serPort.write(struct.pack('f', val))
+    
+        if self.serPort.in_waiting and buffer_size < self.MAX_BUFFER:
+            temp = self.serPort.read()
+            #print(temp)
+            if not need_sync:
+                for i in range(self.INCOMING_BYTES*4):
+                    if temp == b'\xff': break
+                    buffer[buffer_end] = temp
+                    buffer_end = (buffer_end + 1) % self.MAX_BUFFER
+                    buffer_size += 1
+                    if i != 55:
+                        temp = self.serPort.read()
 
-        Acc2_XByte = self.serPort.read(2)
-        Acc2_YByte = self.serPort.read(2)
-        Acc2_ZByte = self.serPort.read(2)
-        Gyr2_XByte = self.serPort.read(2)
-        Gyr2_YByte = self.serPort.read(2)
-        Gyr2_ZByte = self.serPort.read(2)
+            if temp == b'\xff' or self.serPort.in_waiting > 60:
+                need_sync = False
+                buffer_start = 0
+                buffer_end = 0
+                buffer_size = 0
+                buffer = [0]*self.MAX_BUFFER
+                data_pointer = 0
+                data = [0] * self.INCOMING_BYTES
+                if self.serPort.in_waiting > 60:
+                    self.serPort.flushInput() # YEET we need latest info
+                
 
-        imu1_reading = Readings()
-        imu2_reading = Readings()
+        while self.buffer_size >= 4 and not need_sync:
+            data_bytes = []
+            for i in range(4):
+                data_bytes.append(buffer[self.buffer_start])
+                self.buffer_start = (self.buffer_start + 1) % self.MAX_BUFFER
+                self.buffer_size -= 1
+            #print(data_pointer, b''.join(data_bytes))
+            data[data_pointer] = struct.unpack('f', b''.join(data_bytes))
+            data_pointer += 1
+            if data_pointer >= self.INCOMING_BYTES:
+                data_pointer = 0
+                need_sync = True
+                imu_1_data = Readings()
+                imu_1_data.acc_x = data[0]
+                imu_1_data.acc_y = data[1]
+                imu_1_data.acc_z = data[2]
+                imu_1_data.gyr_x = data[3]
+                imu_1_data.gyr_y = data[4]
+                imu_1_data.gyr_z = data[5]
+                imu_1_data.temp = data[6]
 
-        imu1_reading.acc_x = float(int.from_bytes(Acc1_XByte, byteorder='big'))/1000
-        imu1_reading.acc_y = float(int.from_bytes(Acc1_YByte, byteorder='big'))/1000
-        imu1_reading.acc_z = float(int.from_bytes(Acc1_ZByte, byteorder='big'))/1000
-        imu1_reading.gyr_x = float(int.from_bytes(Gyr1_XByte, byteorder='big'))/1000
-        imu1_reading.gyr_y = float(int.from_bytes(Gyr1_YByte, byteorder='big'))/1000
-        imu1_reading.gyr_z = float(int.from_bytes(Gyr1_ZByte, byteorder='big'))/1000
+                imu_2_data = Readings()
+                imu_2_data.acc_x = data[7]
+                imu_2_data.acc_y = data[8]
+                imu_2_data.acc_z = data[9]
+                imu_2_data.gyr_x = data[10]
+                imu_2_data.gyr_y = data[11]
+                imu_2_data.gyr_z = data[12]
+                imu_2_data.temp = data[13]
 
-        imu2_reading.acc_x = float(int.from_bytes(Acc2_XByte, byteorder='big'))/1000
-        imu2_reading.acc_y = float(int.from_bytes(Acc2_YByte, byteorder='big'))/1000
-        imu2_reading.acc_z = float(int.from_bytes(Acc2_ZByte, byteorder='big'))/1000
-        imu2_reading.gyr_x = float(int.from_bytes(Gyr2_XByte, byteorder='big'))/1000
-        imu2_reading.gyr_y = float(int.from_bytes(Gyr2_YByte, byteorder='big'))/1000
-        imu2_reading.gyr_z = float(int.from_bytes(Gyr2_ZByte, byteorder='big'))/1000
-
-        self.get_logger().info("Sending")
-
-        self.serPort.write((255).to_bytes(1,'big'))
-        self.serPort.write((self.controlBuffer['angle']))
-        self.serPort.write((self.controlBuffer['speed']))
-
-        self.readingPub_1.publish(imu1_reading)
-        self.readingPub_2.publish(imu2_reading)
+                self.readingPub_1.publish(imu_1_data)
+                self.readingPub_2.publish(imu_2_data)
         
 def main(args = None):
     rclpy.init(args = args)

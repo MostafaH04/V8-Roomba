@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces
+CMAKE_SOURCE_DIR = /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/more_interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces
+CMAKE_BINARY_DIR = /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces
 
 # Utility rule file for more_interfaces.
 
@@ -66,8 +66,7 @@ include CMakeFiles/more_interfaces.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/more_interfaces.dir/progress.make
 
-CMakeFiles/more_interfaces: /home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces/msg/Controls.msg
-CMakeFiles/more_interfaces: /home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces/msg/Readings.msg
+CMakeFiles/more_interfaces: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/more_interfaces/msg/Readings.msg
 
 more_interfaces: CMakeFiles/more_interfaces
 more_interfaces: CMakeFiles/more_interfaces.dir/build.make
@@ -82,6 +81,6 @@ CMakeFiles/more_interfaces.dir/clean:
 .PHONY : CMakeFiles/more_interfaces.dir/clean
 
 CMakeFiles/more_interfaces.dir/depend:
-	cd /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces /home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles/more_interfaces.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/more_interfaces /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/more_interfaces /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeFiles/more_interfaces.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/more_interfaces.dir/depend
 

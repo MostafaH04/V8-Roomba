@@ -17,6 +17,8 @@ module more_interfaces {
       float gyr_y;
 
       float gyr_z;
+
+      float temp;
     };
   };
 };

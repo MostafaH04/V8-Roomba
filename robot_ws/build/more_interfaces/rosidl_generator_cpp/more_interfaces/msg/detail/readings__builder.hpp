@@ -21,16 +21,32 @@ namespace msg
 namespace builder
 {
 
+class Init_Readings_temp
+{
+public:
+  explicit Init_Readings_temp(::more_interfaces::msg::Readings & msg)
+  : msg_(msg)
+  {}
+  ::more_interfaces::msg::Readings temp(::more_interfaces::msg::Readings::_temp_type arg)
+  {
+    msg_.temp = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::more_interfaces::msg::Readings msg_;
+};
+
 class Init_Readings_gyr_z
 {
 public:
   explicit Init_Readings_gyr_z(::more_interfaces::msg::Readings & msg)
   : msg_(msg)
   {}
-  ::more_interfaces::msg::Readings gyr_z(::more_interfaces::msg::Readings::_gyr_z_type arg)
+  Init_Readings_temp gyr_z(::more_interfaces::msg::Readings::_gyr_z_type arg)
   {
     msg_.gyr_z = std::move(arg);
-    return std::move(msg_);
+    return Init_Readings_temp(msg_);
   }
 
 private:

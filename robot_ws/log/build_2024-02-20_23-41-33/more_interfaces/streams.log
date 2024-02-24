@@ -1,0 +1,153 @@
+[0.049s] Invoking command in '/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/roomba_controller:/opt/ros/humble /usr/bin/cmake --build /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces -- -j12 -l12
+[0.080s] [35m[1mConsolidate compiler generated dependencies of target more_interfaces__rosidl_generator_c[0m
+[0.087s] [  3%] Built target more_interfaces__cpp
+[0.089s] [ 12%] Built target more_interfaces__rosidl_generator_c
+[0.095s] [35m[1mConsolidate compiler generated dependencies of target more_interfaces__rosidl_typesupport_introspection_cpp[0m
+[0.095s] [35m[1mConsolidate compiler generated dependencies of target more_interfaces__rosidl_typesupport_fastrtps_cpp[0m
+[0.095s] [ 12%] Built target ament_cmake_python_copy_more_interfaces
+[0.095s] [35m[1mConsolidate compiler generated dependencies of target more_interfaces__rosidl_typesupport_cpp[0m
+[0.097s] [35m[1mConsolidate compiler generated dependencies of target more_interfaces__rosidl_typesupport_c[0m
+[0.097s] [35m[1mConsolidate compiler generated dependencies of target more_interfaces__rosidl_typesupport_fastrtps_c[0m
+[0.098s] [35m[1mConsolidate compiler generated dependencies of target more_interfaces__rosidl_typesupport_introspection_c[0m
+[0.106s] [ 22%] Built target more_interfaces__rosidl_typesupport_fastrtps_cpp
+[0.106s] [ 38%] Built target more_interfaces__rosidl_typesupport_introspection_cpp
+[0.107s] [ 41%] Built target more_interfaces__rosidl_typesupport_c
+[0.107s] [ 51%] Built target more_interfaces__rosidl_typesupport_cpp
+[0.107s] [ 61%] Built target more_interfaces__rosidl_typesupport_fastrtps_c
+[0.107s] [ 70%] Built target more_interfaces__rosidl_typesupport_introspection_c
+[0.123s] [ 70%] Built target more_interfaces
+[0.139s] [ 74%] Built target more_interfaces__py
+[0.147s] [35m[1mConsolidate compiler generated dependencies of target more_interfaces__rosidl_generator_py[0m
+[0.159s] [ 80%] Built target more_interfaces__rosidl_generator_py
+[0.166s] [35m[1mConsolidate compiler generated dependencies of target more_interfaces__rosidl_typesupport_fastrtps_c__pyext[0m
+[0.166s] [35m[1mConsolidate compiler generated dependencies of target more_interfaces__rosidl_typesupport_introspection_c__pyext[0m
+[0.167s] [35m[1mConsolidate compiler generated dependencies of target more_interfaces__rosidl_typesupport_c__pyext[0m
+[0.177s] [100%] Built target more_interfaces__rosidl_typesupport_introspection_c__pyext
+[0.177s] [100%] Built target more_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[0.177s] [100%] Built target more_interfaces__rosidl_typesupport_c__pyext
+[0.265s] running egg_info
+[0.265s] writing more_interfaces.egg-info/PKG-INFO
+[0.265s] writing dependency_links to more_interfaces.egg-info/dependency_links.txt
+[0.265s] writing top-level names to more_interfaces.egg-info/top_level.txt
+[0.267s] reading manifest file 'more_interfaces.egg-info/SOURCES.txt'
+[0.267s] writing manifest file 'more_interfaces.egg-info/SOURCES.txt'
+[0.285s] [100%] Built target ament_cmake_python_build_more_interfaces_egg
+[0.295s] Invoked command in '/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/roomba_controller:/opt/ros/humble /usr/bin/cmake --build /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces -- -j12 -l12
+[0.351s] Invoking command in '/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/roomba_controller:/opt/ros/humble /usr/bin/cmake --install /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces
+[0.357s] -- Install configuration: ""
+[0.358s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/ament_index/resource_index/rosidl_interfaces/more_interfaces
+[0.358s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces
+[0.358s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg
+[0.358s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/rosidl_generator_c__visibility_control.h
+[0.358s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/readings.h
+[0.358s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail
+[0.358s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/readings__type_support.h
+[0.358s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/readings__struct.h
+[0.358s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/readings__functions.c
+[0.358s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/readings__functions.h
+[0.358s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/environment/library_path.sh
+[0.358s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/environment/library_path.dsv
+[0.358s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/lib/libmore_interfaces__rosidl_generator_c.so
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/readings__rosidl_typesupport_fastrtps_c.h
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/lib/libmore_interfaces__rosidl_typesupport_fastrtps_c.so
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/readings__type_support.c
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/readings__rosidl_typesupport_introspection_c.h
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/lib/libmore_interfaces__rosidl_typesupport_introspection_c.so
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/lib/libmore_interfaces__rosidl_typesupport_c.so
+[0.359s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/readings__traits.hpp
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/readings__struct.hpp
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/readings__builder.hpp
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/readings.hpp
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/dds_fastrtps
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/readings__rosidl_typesupport_fastrtps_cpp.hpp
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/lib/libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg
+[0.360s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail
+[0.361s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/readings__type_support.cpp
+[0.361s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/include/more_interfaces/more_interfaces/msg/detail/readings__rosidl_typesupport_introspection_cpp.hpp
+[0.361s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/lib/libmore_interfaces__rosidl_typesupport_introspection_cpp.so
+[0.361s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/lib/libmore_interfaces__rosidl_typesupport_cpp.so
+[0.361s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/environment/pythonpath.sh
+[0.361s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/environment/pythonpath.dsv
+[0.361s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces-0.1.0-py3.10.egg-info
+[0.361s] -- Installing: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces-0.1.0-py3.10.egg-info/SOURCES.txt
+[0.361s] -- Installing: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces-0.1.0-py3.10.egg-info/PKG-INFO
+[0.361s] -- Installing: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces-0.1.0-py3.10.egg-info/dependency_links.txt
+[0.361s] -- Installing: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces-0.1.0-py3.10.egg-info/top_level.txt
+[0.361s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces
+[0.361s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/more_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[0.361s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_c.c
+[0.361s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/more_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[0.361s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/libmore_interfaces__rosidl_generator_py.so
+[0.362s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/msg
+[0.362s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/msg/_readings_s.c
+[0.362s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/msg/_readings.py
+[0.362s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/msg/__init__.py
+[0.362s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[0.362s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[0.362s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/more_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[0.362s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/__init__.py
+[0.383s] Listing '/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces'...
+[0.383s] Listing '/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/msg'...
+[0.385s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/more_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[0.385s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/more_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[0.386s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/local/lib/python3.10/dist-packages/more_interfaces/more_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[0.386s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/lib/libmore_interfaces__rosidl_generator_py.so
+[0.386s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/msg/Readings.idl
+[0.386s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/msg/Readings.msg
+[0.386s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/ament_index/resource_index/package_run_dependencies/more_interfaces
+[0.386s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/ament_index/resource_index/parent_prefix_path/more_interfaces
+[0.387s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/environment/ament_prefix_path.sh
+[0.387s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/environment/ament_prefix_path.dsv
+[0.387s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/environment/path.sh
+[0.387s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/environment/path.dsv
+[0.387s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/local_setup.bash
+[0.387s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/local_setup.sh
+[0.387s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/local_setup.zsh
+[0.387s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/local_setup.dsv
+[0.387s] -- Installing: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/package.dsv
+[0.387s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/ament_index/resource_index/packages/more_interfaces
+[0.387s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/export_more_interfaces__rosidl_generator_cExport.cmake
+[0.387s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/export_more_interfaces__rosidl_generator_cExport-noconfig.cmake
+[0.388s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/export_more_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[0.388s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/export_more_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[0.388s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[0.388s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[0.388s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_cExport.cmake
+[0.388s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[0.388s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/export_more_interfaces__rosidl_generator_cppExport.cmake
+[0.388s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/export_more_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[0.388s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/export_more_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[0.388s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[0.388s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[0.388s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_cppExport.cmake
+[0.388s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[0.389s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/export_more_interfaces__rosidl_generator_pyExport.cmake
+[0.389s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/export_more_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[0.389s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/rosidl_cmake-extras.cmake
+[0.389s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.389s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[0.389s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[0.389s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[0.389s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.389s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[0.389s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/more_interfacesConfig.cmake
+[0.389s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/cmake/more_interfacesConfig-version.cmake
+[0.389s] -- Up-to-date: /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/more_interfaces/share/more_interfaces/package.xml
+[0.391s] Invoked command in '/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/install/roomba_controller:/opt/ros/humble /usr/bin/cmake --install /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces

@@ -63,6 +63,7 @@ class Readings(metaclass=Metaclass_Readings):
         '_gyr_x',
         '_gyr_y',
         '_gyr_z',
+        '_temp',
     ]
 
     _fields_and_field_types = {
@@ -72,9 +73,11 @@ class Readings(metaclass=Metaclass_Readings):
         'gyr_x': 'float',
         'gyr_y': 'float',
         'gyr_z': 'float',
+        'temp': 'float',
     }
 
     SLOT_TYPES = (
+        rosidl_parser.definition.BasicType('float'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
@@ -93,6 +96,7 @@ class Readings(metaclass=Metaclass_Readings):
         self.gyr_x = kwargs.get('gyr_x', float())
         self.gyr_y = kwargs.get('gyr_y', float())
         self.gyr_z = kwargs.get('gyr_z', float())
+        self.temp = kwargs.get('temp', float())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -134,6 +138,8 @@ class Readings(metaclass=Metaclass_Readings):
         if self.gyr_y != other.gyr_y:
             return False
         if self.gyr_z != other.gyr_z:
+            return False
+        if self.temp != other.temp:
             return False
         return True
 
@@ -231,3 +237,18 @@ class Readings(metaclass=Metaclass_Readings):
             assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
                 "The 'gyr_z' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
         self._gyr_z = value
+
+    @builtins.property
+    def temp(self):
+        """Message field 'temp'."""
+        return self._temp
+
+    @temp.setter
+    def temp(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'temp' field must be of type 'float'"
+            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
+                "The 'temp' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
+        self._temp = value

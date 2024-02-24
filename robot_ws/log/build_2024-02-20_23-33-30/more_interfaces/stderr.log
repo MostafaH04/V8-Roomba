@@ -1,0 +1,4 @@
+[0mCMake Error: The current CMakeCache.txt directory /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeCache.txt is different than the directory /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt[0m
+[0mCMake Error: The source directory "/home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces" does not exist.
+Specify --help for usage, or press the help button on the CMake GUI.[0m
+gmake: *** [Makefile:963: cmake_check_build_system] Error 1

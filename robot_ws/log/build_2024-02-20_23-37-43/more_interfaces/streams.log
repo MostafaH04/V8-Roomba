@@ -1,0 +1,6 @@
+[0.039s] Invoking command in '/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces -- -j12 -l12
+[0.099s] [0mCMake Error: The current CMakeCache.txt directory /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces/CMakeCache.txt is different than the directory /home/mahus/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt[0m
+[0.109s] [0mCMake Error: The source directory "/home/mahus/Autonomous-Cleaning-Robot/robot_ws/more_interfaces" does not exist.
+[0.109s] Specify --help for usage, or press the help button on the CMake GUI.[0m
+[0.110s] gmake: *** [Makefile:963: cmake_check_build_system] Error 1
+[0.111s] Invoked command in '/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces -- -j12 -l12

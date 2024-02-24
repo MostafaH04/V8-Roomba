@@ -104,6 +104,15 @@ bool more_interfaces__msg__readings__convert_from_py(PyObject * _pymsg, void * _
     ros_message->gyr_z = (float)PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
+  {  // temp
+    PyObject * field = PyObject_GetAttrString(_pymsg, "temp");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->temp = (float)PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -186,6 +195,17 @@ PyObject * more_interfaces__msg__readings__convert_to_py(void * raw_ros_message)
     field = PyFloat_FromDouble(ros_message->gyr_z);
     {
       int rc = PyObject_SetAttrString(_pymessage, "gyr_z", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // temp
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->temp);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "temp", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

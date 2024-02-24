@@ -1,0 +1,2 @@
+Invoking command in '/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces -- -j12 -l12
+Invoked command in '/home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/mahus/Winter/Autonomous-Cleaning-Robot/robot_ws/build/more_interfaces -- -j12 -l12

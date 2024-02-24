@@ -23,6 +23,7 @@ more_interfaces__msg__Readings__init(more_interfaces__msg__Readings * msg)
   // gyr_x
   // gyr_y
   // gyr_z
+  // temp
   return true;
 }
 
@@ -38,6 +39,7 @@ more_interfaces__msg__Readings__fini(more_interfaces__msg__Readings * msg)
   // gyr_x
   // gyr_y
   // gyr_z
+  // temp
 }
 
 bool
@@ -70,6 +72,10 @@ more_interfaces__msg__Readings__are_equal(const more_interfaces__msg__Readings *
   if (lhs->gyr_z != rhs->gyr_z) {
     return false;
   }
+  // temp
+  if (lhs->temp != rhs->temp) {
+    return false;
+  }
   return true;
 }
 
@@ -93,6 +99,8 @@ more_interfaces__msg__Readings__copy(
   output->gyr_y = input->gyr_y;
   // gyr_z
   output->gyr_z = input->gyr_z;
+  // temp
+  output->temp = input->temp;
   return true;
 }
 

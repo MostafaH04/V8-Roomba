@@ -44,6 +44,7 @@ struct Readings_
       this->gyr_x = 0.0f;
       this->gyr_y = 0.0f;
       this->gyr_z = 0.0f;
+      this->temp = 0.0f;
     }
   }
 
@@ -59,6 +60,7 @@ struct Readings_
       this->gyr_x = 0.0f;
       this->gyr_y = 0.0f;
       this->gyr_z = 0.0f;
+      this->temp = 0.0f;
     }
   }
 
@@ -81,6 +83,9 @@ struct Readings_
   using _gyr_z_type =
     float;
   _gyr_z_type gyr_z;
+  using _temp_type =
+    float;
+  _temp_type temp;
 
   // setters for named parameter idiom
   Type & set__acc_x(
@@ -117,6 +122,12 @@ struct Readings_
     const float & _arg)
   {
     this->gyr_z = _arg;
+    return *this;
+  }
+  Type & set__temp(
+    const float & _arg)
+  {
+    this->temp = _arg;
     return *this;
   }
 
@@ -178,6 +189,9 @@ struct Readings_
       return false;
     }
     if (this->gyr_z != other.gyr_z) {
+      return false;
+    }
+    if (this->temp != other.temp) {
       return false;
     }
     return true;

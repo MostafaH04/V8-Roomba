@@ -37,7 +37,7 @@ void Readings_fini_function(void * message_memory)
   typed_message->~Readings();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember Readings_message_member_array[6] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember Readings_message_member_array[7] = {
   {
     "acc_x",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
@@ -139,13 +139,30 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Readings_mess
     nullptr,  // fetch(index, &value) function pointer
     nullptr,  // assign(index, value) function pointer
     nullptr  // resize(index) function pointer
+  },
+  {
+    "temp",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(more_interfaces::msg::Readings, temp),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr,  // fetch(index, &value) function pointer
+    nullptr,  // assign(index, value) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers Readings_message_members = {
   "more_interfaces::msg",  // message namespace
   "Readings",  // message name
-  6,  // number of fields
+  7,  // number of fields
   sizeof(more_interfaces::msg::Readings),
   Readings_message_member_array,  // message members
   Readings_init_function,  // function to initialize message memory (memory has to be allocated)

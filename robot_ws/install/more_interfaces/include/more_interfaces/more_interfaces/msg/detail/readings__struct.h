@@ -26,6 +26,7 @@ typedef struct more_interfaces__msg__Readings
   float gyr_x;
   float gyr_y;
   float gyr_z;
+  float temp;
 } more_interfaces__msg__Readings;
 
 // Struct for a sequence of more_interfaces__msg__Readings.
