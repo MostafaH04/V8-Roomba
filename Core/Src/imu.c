@@ -6,6 +6,7 @@
  */
 
 #include "imu.h"
+#include "cmsis_os.h"
 
 static void calibrate_imu(IMU_t* imu);
 static void correct_data(IMU_t* imu);
@@ -199,8 +200,12 @@ void IMU_readAccelRegisters(IMU_t* imu)
 	int16_t accelX, accelY, accelZ;
 	uint8_t accelRec[6];
 
+
+	int32_t state = osKernelLock();
 	HAL_I2C_Mem_Read(imu->i2c,(imu->address<<1) | 0x01, ACCEL_XOUT_H, 1,
 			accelRec, 6, HAL_MAX_DELAY);
+	osKernelUnlock();
+
 
 	accelX = (int16_t)(accelRec[0] << 8 | accelRec[1]);
 	accelY = (int16_t)(accelRec[2] << 8 | accelRec[3]);
@@ -216,8 +221,12 @@ void IMU_readGyroRegisters(IMU_t* imu)
 	int16_t gyroX, gyroY, gyroZ;
 	uint8_t gyroRec[6];
 
+
+	int32_t state = osKernelLock();
 	HAL_I2C_Mem_Read(imu->i2c,(imu->address<<1) | 0x01,GYRO_XOUT_H, 1,
 			gyroRec, 6, HAL_MAX_DELAY);
+	osKernelUnlock();
+
 
 	gyroX = (int16_t)(gyroRec[0] << 8 | gyroRec[1]);
 	gyroY = (int16_t)(gyroRec[2] << 8 | gyroRec[3]);
@@ -233,8 +242,12 @@ void IMU_readTempRegisters(IMU_t* imu)
 	int16_t temp;
 	uint8_t tempRecv[2];
 
+	int32_t state = osKernelLock();
+
 	HAL_I2C_Mem_Read(imu->i2c, (imu->address<<1) | 0x01, TEMP_OUT_H, 1,
 			tempRecv, 2, HAL_MAX_DELAY);
+	osKernelUnlock();
+
 
 	temp = (int16_t)(tempRecv[0] << 8 | tempRecv[1]);
 	temp = temp / 340 + 36.53;
@@ -276,7 +289,7 @@ void IMU_selectClockSource(IMU_t* imu, Clock_Select clock_sel)
 
 	pwr_mgmt = (pwr_mgmt & 0b11111000) | clock_sel;
 
-	HAL_I2C_Mem_Write(imu->i2c, (imu->address<<1), PWR_MGMT_1, 1,
+	HAL_I2C_Mem_Write(imu->i2c, (imu->address<<1), PWR_MGMT_1   , 1,
 			&pwr_mgmt, 1, HAL_MAX_DELAY);
 }
 

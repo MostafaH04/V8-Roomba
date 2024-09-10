@@ -1,4 +1,3 @@
-/* USER CODE BEGIN Header */
 /**
  ******************************************************************************
  * @file           : main.c
@@ -15,9 +14,10 @@
  *
  ******************************************************************************
  */
-/* USER CODE END Header */
+
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
 #include "dma.h"
 #include "i2c.h"
 #include "tim.h"
@@ -25,68 +25,23 @@
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
 #include "motor_control.h"
 #include "imu.h"
 #include "comms.h"
-/* USER CODE END Includes */
 
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-/* USER CODE BEGIN PFP */
-
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
+void MX_FREERTOS_Init(void);
 
 /**
  * @brief  The application entry point.
  * @retval int
  */
 int main(void) {
-	/* USER CODE BEGIN 1 */
-
-	/* USER CODE END 1 */
-
-	/* MCU Configuration--------------------------------------------------------*/
-
 	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
 	HAL_Init();
 
-	/* USER CODE BEGIN Init */
-
-	/* USER CODE END Init */
-
 	/* Configure the system clock */
 	SystemClock_Config();
-
-	/* USER CODE BEGIN SysInit */
-
-	/* USER CODE END SysInit */
 
 	/* Initialize all configured peripherals */
 	MX_GPIO_Init();
@@ -95,50 +50,20 @@ int main(void) {
 	MX_TIM1_Init();
 	MX_TIM3_Init();
 	MX_USART2_UART_Init();
-	/* USER CODE BEGIN 2 */
-	Motor_t motor1 = MOTOR_init(&htim1, TIM_CHANNEL_1, &htim1, TIM_CHANNEL_2,
-			0.035f);
-	Motor_t motor2 = MOTOR_init(&htim1, TIM_CHANNEL_3, &htim1, TIM_CHANNEL_4,
-			0.035f);
-	Motor_t motor3 = MOTOR_init(&htim3, TIM_CHANNEL_1, &htim3, TIM_CHANNEL_2,
-			0.035f);
-	Motor_t motor4 = MOTOR_init(&htim3, TIM_CHANNEL_3, &htim3, TIM_CHANNEL_4,
-			0.035f);
 
-	Chassis_Controller_t chassis = CHASSIS_init(&motor1, &motor2, &motor3,
-			&motor4, 0.25);
+	/* Init scheduler */
+	osKernelInitialize();
 
-	HAL_Delay(1000);
-	IMU_t imu_2 = IMU_Init(
-	true, &hi2c1,
-	GPIOB,
-	GPIO_PIN_15);
+	/* Call init function for freertos objects (in cmsis_os2.c) */
+	MX_FREERTOS_Init();
 
-	IMU_t imu_1 = IMU_Init(
-	false, &hi2c1,
-	GPIOB,
-	GPIO_PIN_14);
-
-	Init_comms(&huart2);
-
-	/* USER CODE END 2 */
+	/* Start scheduler */
+	osKernelStart();
 
 	/* Infinite loop */
-	/* USER CODE BEGIN WHILE */
 	while (1) {
-		/* USER CODE END WHILE */
-		CHASSIS_drive(&chassis);
-		IMU_updateData(&imu_1);
-		IMU_updateData(&imu_2);
-		float omega = comms.incoming_data.twist.angular[2];
-		float speed = comms.incoming_data.twist.linear[0];
-		CHASSIS_set_speed(&chassis, speed, omega);
-		process_sensor_data(&(imu_1.imuData), &(imu_2.imuData));
-		HAL_UART_Transmit(comms.uart, tx_data_buffer, TX_DATA_BUFFER_SIZE,
-				1000);
-		/* USER CODE BEGIN 3 */
+
 	}
-	/* USER CODE END 3 */
 }
 
 /**
@@ -182,11 +107,10 @@ void SystemClock_Config(void) {
 /* USER CODE BEGIN 4 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *husart)
 {
-	if (husart == comms.uart)
-	{
-		parse_command();
-		HAL_UART_Receive_DMA(comms.uart, rx_data_buffer, RX_DATA_BUFFER_SIZE);
-	}
+	int32_t state = osKernelLock();
+	parse_command();
+	HAL_UART_Receive_DMA(comms.uart, rx_data_buffer, RX_DATA_BUFFER_SIZE);
+	osKernelUnlock();
 }
 /* USER CODE END 4 */
 

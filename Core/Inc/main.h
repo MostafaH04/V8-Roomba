@@ -41,7 +41,8 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-
+#define WHEEL_RAD 0.035f
+#define IMU_REFRESH_FREQ 1000
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

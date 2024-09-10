@@ -6,11 +6,11 @@
  */
 
 #include "comms.h"
+#include "cmsis_os.h"
 
 Comms_t comms;
 unsigned char* rx_data_buffer = comms.incoming_data.in_data;
 unsigned char* tx_data_buffer = comms.outgoing_sensor_data.out_data;
-
 
 // TODO: Make this thread safe
 
@@ -27,9 +27,6 @@ void Init_comms(UART_HandleTypeDef* huart)
 
 void parse_command(void)
 {
-	float* linear  = comms.incoming_data.twist.linear;
-	float* angular = comms.incoming_data.twist.angular;
-
 	unsigned char* buffer = comms.incoming_data.in_data;
 	unsigned char buffer_temp[RX_DATA_BUFFER_SIZE-1];
 
@@ -52,11 +49,16 @@ void parse_command(void)
 
 	if (!found_start) return;
 
-	for (uint8_t i = 0; i < 3; i++)
-	{
-		memcpy(&linear[i], &buffer_temp[sizeof(float)*i], sizeof(float));
-		memcpy(&angular[i], &buffer_temp[sizeof(float)*(3+i)], sizeof(float));
-	}
+
+    float* linear  = comms.incoming_data.twist.linear;
+    float* angular = comms.incoming_data.twist.angular;
+
+    for (uint8_t i = 0; i < 3; i++)
+    {
+	   memcpy(&linear[i], &buffer_temp[sizeof(float)*i], sizeof(float));
+	   memcpy(&angular[i], &buffer_temp[sizeof(float)*(3+i)], sizeof(float));
+    }
+
 }
 
 void process_sensor_data(IMU_Data_t* imuData_1, IMU_Data_t* imuData_2)
