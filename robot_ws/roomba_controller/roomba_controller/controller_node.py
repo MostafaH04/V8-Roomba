@@ -62,65 +62,72 @@ class RoombaController(Node):
         angularArr = [angular.x, angular.y, angular.z]
         self.controls = linearArr + angularArr
 
-    def readData(self):
         roomba_control_vector = self.controls
         self.serPort.write(b'\xff')
+        print(roomba_control_vector)
         for val in roomba_control_vector:
             self.serPort.write(struct.pack('f', val))
+            print(struct.pack('f', val))
     
-        if self.serPort.in_waiting and buffer_size < self.MAX_BUFFER:
+
+    def readData(self):
+        if self.serPort.in_waiting and self.buffer_size < self.MAX_BUFFER:
             temp = self.serPort.read()
             #print(temp)
-            if not need_sync:
+            if not self.need_sync:
                 for i in range(self.INCOMING_BYTES*4):
                     if temp == b'\xff': break
-                    buffer[buffer_end] = temp
-                    buffer_end = (buffer_end + 1) % self.MAX_BUFFER
-                    buffer_size += 1
+                    self.buffer[self.buffer_end] = temp
+                    self.buffer_end = (self.buffer_end + 1) % self.MAX_BUFFER
+                    self.buffer_size += 1
                     if i != 55:
                         temp = self.serPort.read()
 
             if temp == b'\xff' or self.serPort.in_waiting > 60:
-                need_sync = False
-                buffer_start = 0
-                buffer_end = 0
-                buffer_size = 0
-                buffer = [0]*self.MAX_BUFFER
-                data_pointer = 0
-                data = [0] * self.INCOMING_BYTES
+                self.need_sync = False
+                self.buffer_start = 0
+                self.buffer_end = 0
+                self.buffer_size = 0
+                self.buffer = [0]*self.MAX_BUFFER
+                self.data_pointer = 0
+                self.data = [0] * self.INCOMING_BYTES
                 if self.serPort.in_waiting > 60:
                     self.serPort.flushInput() # YEET we need latest info
                 
 
-        while self.buffer_size >= 4 and not need_sync:
+        while self.buffer_size >= 4 and not self.need_sync:
             data_bytes = []
             for i in range(4):
-                data_bytes.append(buffer[self.buffer_start])
+                data_bytes.append(self.buffer[self.buffer_start])
                 self.buffer_start = (self.buffer_start + 1) % self.MAX_BUFFER
                 self.buffer_size -= 1
             #print(data_pointer, b''.join(data_bytes))
-            data[data_pointer] = struct.unpack('f', b''.join(data_bytes))
-            data_pointer += 1
-            if data_pointer >= self.INCOMING_BYTES:
-                data_pointer = 0
+            self.data[self.data_pointer] = struct.unpack('f', b''.join(data_bytes))
+            self.data_pointer += 1
+            if self.data_pointer >= self.INCOMING_BYTES:
+                self.data_pointer = 0
                 need_sync = True
                 imu_1_data = Readings()
-                imu_1_data.acc_x = data[0]
-                imu_1_data.acc_y = data[1]
-                imu_1_data.acc_z = data[2]
-                imu_1_data.gyr_x = data[3]
-                imu_1_data.gyr_y = data[4]
-                imu_1_data.gyr_z = data[5]
-                imu_1_data.temp = data[6]
+                
+                for i in range(len(self.data)):
+                    self.data[i] = self.data[i][0]
+
+                imu_1_data.acc_x = self.data[0]
+                imu_1_data.acc_y = self.data[1]
+                imu_1_data.acc_z = self.data[2]
+                imu_1_data.gyr_x = self.data[3]
+                imu_1_data.gyr_y = self.data[4]
+                imu_1_data.gyr_z = self.data[5]
+                imu_1_data.temp = self.data[6]
 
                 imu_2_data = Readings()
-                imu_2_data.acc_x = data[7]
-                imu_2_data.acc_y = data[8]
-                imu_2_data.acc_z = data[9]
-                imu_2_data.gyr_x = data[10]
-                imu_2_data.gyr_y = data[11]
-                imu_2_data.gyr_z = data[12]
-                imu_2_data.temp = data[13]
+                imu_2_data.acc_x = self.data[7]
+                imu_2_data.acc_y = self.data[8]
+                imu_2_data.acc_z = self.data[9]
+                imu_2_data.gyr_x = self.data[10]
+                imu_2_data.gyr_y = self.data[11]
+                imu_2_data.gyr_z = self.data[12]
+                imu_2_data.temp = self.data[13]
 
                 self.readingPub_1.publish(imu_1_data)
                 self.readingPub_2.publish(imu_2_data)
